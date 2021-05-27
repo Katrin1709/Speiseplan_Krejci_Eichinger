@@ -29,7 +29,6 @@ namespace Speiseplan_Krejci_Eichinger
         List<string> HauptspeiseListe;
         List<string> NachspeiseListe;
         
-
         string zeile;
         int id;
 
