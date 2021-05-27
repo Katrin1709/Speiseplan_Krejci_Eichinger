@@ -49,7 +49,6 @@ namespace Speiseplan_Krejci_Eichinger
 
         public void ListeErstellen(int count)
         {
-            
             sql = "Select * from Vorspeise";
             dr = db.Einlesen(sql);
             while (dr.Read())
@@ -58,7 +57,6 @@ namespace Speiseplan_Krejci_Eichinger
                 VorspeiseListe.Add(dr[0].ToString());
                 VorspeiseListe.Add(dr[2].ToString());
             }
-            
         }
 
         public void listViewEinrichten()
