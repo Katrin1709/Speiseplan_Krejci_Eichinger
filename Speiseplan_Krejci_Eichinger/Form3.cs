@@ -36,10 +36,9 @@ namespace Speiseplan_Krejci_Eichinger
         private void vorspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1.f1.VorspeiseEinlesen();
             Form1.f1.listViewEinrichten();
-            
-            Form1.f1.ShowDialog();
+            Form1.f1.VorspeiseEinlesen();
+            Form1.f1.Show();
         }
 
         private void hauptspeiseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,7 +46,6 @@ namespace Speiseplan_Krejci_Eichinger
             this.Hide();
             Form1.f1.listViewEinrichten();
             Form1.f1.HauptspeiseEinlesen();
-            Form1.f1.ShowDialog();
         }
 
         private void nachspeiseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,7 +53,6 @@ namespace Speiseplan_Krejci_Eichinger
             this.Hide();
             Form1.f1.listViewEinrichten();
             Form1.f1.NachspeiseEinlesen();
-            Form1.f1.ShowDialog();
         }
 
         private void Drucken_Click(object sender, EventArgs e)
