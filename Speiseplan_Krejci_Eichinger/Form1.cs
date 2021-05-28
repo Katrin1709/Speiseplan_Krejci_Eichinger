@@ -46,9 +46,15 @@ namespace Speiseplan_Krejci_Eichinger
             NachspeiseListe = new List<string>();
 
             alleSpeisenEinlesen();
+
+            //ListeErstellen();
+            //for(int i = 0; i<VorspeiseListe.LastIndexOf; i++ )
+            //{
+
+            //}
         }
 
-        public void ListeErstellen(int count)
+        public void ListeErstellen()
         {
             
             sql = "Select * from Vorspeise";

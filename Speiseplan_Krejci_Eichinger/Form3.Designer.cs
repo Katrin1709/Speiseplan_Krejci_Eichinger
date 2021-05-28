@@ -404,6 +404,7 @@
             this.speisenToolStripMenuItem.Name = "speisenToolStripMenuItem";
             this.speisenToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.speisenToolStripMenuItem.Text = "Speisen";
+            this.speisenToolStripMenuItem.Click += new System.EventHandler(this.speisenToolStripMenuItem_Click);
             // 
             // vorspeiseToolStripMenuItem
             // 
