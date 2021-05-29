@@ -23,7 +23,7 @@ namespace Speiseplan_Krejci_Eichinger
             
         }
 
-        private void btnSpeichern_Click(object sender, EventArgs e)
+        public void Veränderung()
         {
             try
             {
@@ -140,6 +140,19 @@ namespace Speiseplan_Krejci_Eichinger
             }
             //Form1.f1.alleSpeisenEinlesen();
             //Form1.f1.NachspeiseEinlesen();
+        }
+
+        private void btnSpeichern_Click(object sender, EventArgs e)
+        {
+            Veränderung();
+        }
+
+        private void txtBezeichnung_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                Veränderung();
+            }
         }
     }
 }

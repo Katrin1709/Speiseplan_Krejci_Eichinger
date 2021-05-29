@@ -23,7 +23,7 @@ namespace Speiseplan_Krejci_Eichinger
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            
+            Form1.f1.VorspeiseListeErstellen();
         }
 
         private void alleSpeisenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,6 +46,7 @@ namespace Speiseplan_Krejci_Eichinger
             this.Hide();
             Form1.f1.listViewEinrichten();
             Form1.f1.HauptspeiseEinlesen();
+            Form1.f1.Show();
         }
 
         private void nachspeiseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,6 +54,7 @@ namespace Speiseplan_Krejci_Eichinger
             this.Hide();
             Form1.f1.listViewEinrichten();
             Form1.f1.NachspeiseEinlesen();
+            Form1.f1.Show();
         }
 
         private void Drucken_Click(object sender, EventArgs e)
@@ -85,11 +87,6 @@ namespace Speiseplan_Krejci_Eichinger
             wordapp.ActiveDocument.ExportAsFixedFormat(Application.StartupPath + "\\../../../" + wochenspeiseplanToolStripMenuItem.Text + ".pdf", Microsoft.Office.Interop.Word.WdExportFormat.wdExportFormatPDF, true);
             //wordapp.ActiveDocument.Close(); schließt das offene Worddokument
             //wordapp.Quit(); schlißt word
-        }
-
-        private void speisenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

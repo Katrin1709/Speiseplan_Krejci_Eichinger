@@ -28,7 +28,13 @@ namespace Speiseplan_Krejci_Eichinger
         List<string> VorspeiseListe;
         List<string> HauptspeiseListe;
         List<string> NachspeiseListe;
-        
+
+        string speise1;
+        string speise2;
+        string speise3;
+        string speise4;
+        string speise5;
+
         string zeile;
         int id;
 
@@ -53,16 +59,44 @@ namespace Speiseplan_Krejci_Eichinger
             //}
         }
 
-        public void ListeErstellen()
+        public void VorspeiseListeErstellen()
         {
-            sql = "Select * from Vorspeise";
-            dr = db.Einlesen(sql);
-            while (dr.Read())
+            for (int i = 0; i <= 4; i++)
             {
+                bool doppelte;
+                do
+                {
+                    doppelte = false;
 
-                VorspeiseListe.Add(dr[0].ToString());
-                VorspeiseListe.Add(dr[2].ToString());
+                    int index = rand.Next(VorspeiseListe.Count) + 1;
+                    MessageBox.Show(index.ToString());
+
+                    for (int a = 0; a < i; a++)
+                    {
+                        if (index == a)
+                            doppelte = true;
+                    }
+
+                    sql = "Select Bezeichnung from Vorspeise Where VorspeiseID = " + index;
+                    //MessageBox.Show(sql.ToString());
+                    dr = db.Einlesen(sql);
+                    while (dr.Read())
+                    {
+                        VorspeiseListe.Add(dr[0].ToString());
+                        speise1 = VorspeiseListe[0];
+                        speise2 = VorspeiseListe[0];
+                        speise3 = VorspeiseListe[0];
+                        speise4 = VorspeiseListe[0];
+                        speise5 = VorspeiseListe[0];
+                    }
+                }
+                while (doppelte == true);
             }
+            Form3.f3.txtMoVor.Text = speise1;
+            Form3.f3.txtDiVor.Text = speise2;
+            Form3.f3.txtMiVor.Text = speise3;
+            Form3.f3.txtDoVor.Text = speise4;
+            Form3.f3.txtFrVor.Text = speise5;
         }
 
         public void listViewEinrichten()

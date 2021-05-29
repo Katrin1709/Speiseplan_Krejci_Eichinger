@@ -94,6 +94,7 @@
             this.txtBezeichnung.Name = "txtBezeichnung";
             this.txtBezeichnung.Size = new System.Drawing.Size(233, 27);
             this.txtBezeichnung.TabIndex = 5;
+            this.txtBezeichnung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBezeichnung_KeyPress);
             // 
             // cbSpeiseart
             // 
