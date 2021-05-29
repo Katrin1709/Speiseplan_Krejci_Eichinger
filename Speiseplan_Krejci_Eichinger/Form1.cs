@@ -38,7 +38,7 @@ namespace Speiseplan_Krejci_Eichinger
         string zeile;
         int id;
 
-        Random rand = new Random();
+        Random rand = new Random(5);
 
         private void Speiseplan_Load(object sender, EventArgs e)
         {
@@ -61,42 +61,59 @@ namespace Speiseplan_Krejci_Eichinger
 
         public void VorspeiseListeErstellen()
         {
+            int letzteid = db.BerechnenInt("Select Max(NachspeiseID) from Nachspeise") + 1;
+
             for (int i = 0; i <= 4; i++)
             {
-                bool doppelte;
-                do
+                int index = rand.Next(1, letzteid);
+
+                sql = "Select Bezeichnung from Vorspeise Where VorspeiseID = " + index;
+                //MessageBox.Show(sql.ToString());
+                dr = db.Einlesen(sql);
+
+                while (dr.Read())
                 {
-                    doppelte = false;
+                    VorspeiseListe.Clear();
+                    VorspeiseListe.Add(dr[0].ToString());
+                    //VorspeiseListe.RemoveAt(index);
 
-                    int index = rand.Next(VorspeiseListe.Count) + 1;
-                    MessageBox.Show(index.ToString());
+                    speise1 = VorspeiseListe[0];
+                    speise2 = VorspeiseListe[0];
+                    speise3 = VorspeiseListe[0];
+                    speise4 = VorspeiseListe[0];
+                    speise5 = VorspeiseListe[0];
 
-                    for (int a = 0; a < i; a++)
-                    {
-                        if (index == a)
-                            doppelte = true;
-                    }
 
-                    sql = "Select Bezeichnung from Vorspeise Where VorspeiseID = " + index;
-                    //MessageBox.Show(sql.ToString());
-                    dr = db.Einlesen(sql);
-                    while (dr.Read())
-                    {
-                        VorspeiseListe.Add(dr[0].ToString());
-                        speise1 = VorspeiseListe[0];
-                        speise2 = VorspeiseListe[0];
-                        speise3 = VorspeiseListe[0];
-                        speise4 = VorspeiseListe[0];
-                        speise5 = VorspeiseListe[0];
-                    }
+                    MessageBox.Show(dr[0].ToString());
+
+                    
+                    Form3.f3.textbox1.Text = dr[0].ToString();
+                    Form3.f3.txt2.Text = dr[0].ToString();
+                  
                 }
-                while (doppelte == true);
+
+                //bool doppelte;
+                //do
+                //{
+                //    doppelte = false;
+
+                
+                   
+                    //MessageBox.Show(index.ToString());
+
+                    //for (int a = 0; a < i; a++)
+                    //{
+                    //    if (index == a)
+                    //        doppelte = true;
+                    //}                    
+                //}
+                //while (doppelte == true);
             }
-            Form3.f3.txtMoVor.Text = speise1;
-            Form3.f3.txtDiVor.Text = speise2;
-            Form3.f3.txtMiVor.Text = speise3;
-            Form3.f3.txtDoVor.Text = speise4;
-            Form3.f3.txtFrVor.Text = speise5;
+            Form3.f3.textbox1.Text = speise1;
+            Form3.f3.txt2.Text = speise2;
+            Form3.f3.txt3.Text = speise3;
+            Form3.f3.txt4.Text = speise4;
+            Form3.f3.txt5.Text = speise5;
         }
 
         public void listViewEinrichten()

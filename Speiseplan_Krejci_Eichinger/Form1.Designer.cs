@@ -36,6 +36,7 @@
             this.nachspeiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alleSpeisenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wochenspeiseplanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speisenÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.vorspeiseHinzufügen = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.speisenÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vorspeiseBewertenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bewertungenAnsehenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -88,28 +90,28 @@
             // vorspeiseToolStripMenuItem
             // 
             this.vorspeiseToolStripMenuItem.Name = "vorspeiseToolStripMenuItem";
-            this.vorspeiseToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.vorspeiseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.vorspeiseToolStripMenuItem.Text = "Vorspeisen";
             this.vorspeiseToolStripMenuItem.Click += new System.EventHandler(this.vorspeiseToolStripMenuItem_Click);
             // 
             // hauptspeiseToolStripMenuItem
             // 
             this.hauptspeiseToolStripMenuItem.Name = "hauptspeiseToolStripMenuItem";
-            this.hauptspeiseToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.hauptspeiseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.hauptspeiseToolStripMenuItem.Text = "Hauptspeisen";
             this.hauptspeiseToolStripMenuItem.Click += new System.EventHandler(this.hauptspeiseToolStripMenuItem_Click);
             // 
             // nachspeiseToolStripMenuItem
             // 
             this.nachspeiseToolStripMenuItem.Name = "nachspeiseToolStripMenuItem";
-            this.nachspeiseToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.nachspeiseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.nachspeiseToolStripMenuItem.Text = "Nachspeisen";
             this.nachspeiseToolStripMenuItem.Click += new System.EventHandler(this.nachspeiseToolStripMenuItem_Click);
             // 
             // alleSpeisenToolStripMenuItem
             // 
             this.alleSpeisenToolStripMenuItem.Name = "alleSpeisenToolStripMenuItem";
-            this.alleSpeisenToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.alleSpeisenToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.alleSpeisenToolStripMenuItem.Text = "Alle Speisen";
             this.alleSpeisenToolStripMenuItem.Click += new System.EventHandler(this.alleSpeisenToolStripMenuItem_Click);
             // 
@@ -121,6 +123,12 @@
             this.wochenspeiseplanToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.wochenspeiseplanToolStripMenuItem.Text = "Wochenspeiseplan";
             this.wochenspeiseplanToolStripMenuItem.Click += new System.EventHandler(this.wochenspeiseplanToolStripMenuItem_Click);
+            // 
+            // speisenÄndernToolStripMenuItem
+            // 
+            this.speisenÄndernToolStripMenuItem.Name = "speisenÄndernToolStripMenuItem";
+            this.speisenÄndernToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.speisenÄndernToolStripMenuItem.Text = "Drucken";
             // 
             // listView1
             // 
@@ -138,28 +146,30 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vorspeiseHinzufügen,
             this.vorspeiseBearbeiten,
-            this.vorspeiseLöschen});
+            this.vorspeiseLöschen,
+            this.vorspeiseBewertenToolStripMenuItem,
+            this.bewertungenAnsehenToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(224, 124);
             // 
             // vorspeiseHinzufügen
             // 
             this.vorspeiseHinzufügen.Name = "vorspeiseHinzufügen";
-            this.vorspeiseHinzufügen.Size = new System.Drawing.Size(218, 24);
+            this.vorspeiseHinzufügen.Size = new System.Drawing.Size(223, 24);
             this.vorspeiseHinzufügen.Text = "Vorspeise hinzufügen";
             this.vorspeiseHinzufügen.Click += new System.EventHandler(this.vorspeiseHinzufügen_Click);
             // 
             // vorspeiseBearbeiten
             // 
             this.vorspeiseBearbeiten.Name = "vorspeiseBearbeiten";
-            this.vorspeiseBearbeiten.Size = new System.Drawing.Size(218, 24);
+            this.vorspeiseBearbeiten.Size = new System.Drawing.Size(223, 24);
             this.vorspeiseBearbeiten.Text = "Vorspeise bearbeiten";
             this.vorspeiseBearbeiten.Click += new System.EventHandler(this.vorspeiseBearbeiten_Click);
             // 
             // vorspeiseLöschen
             // 
             this.vorspeiseLöschen.Name = "vorspeiseLöschen";
-            this.vorspeiseLöschen.Size = new System.Drawing.Size(218, 24);
+            this.vorspeiseLöschen.Size = new System.Drawing.Size(223, 24);
             this.vorspeiseLöschen.Text = "Vorspeise löschen";
             this.vorspeiseLöschen.Click += new System.EventHandler(this.vorspeiseLöschen_Click);
             // 
@@ -285,11 +295,17 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Hauptspeisen";
             // 
-            // speisenÄndernToolStripMenuItem
+            // vorspeiseBewertenToolStripMenuItem
             // 
-            this.speisenÄndernToolStripMenuItem.Name = "speisenÄndernToolStripMenuItem";
-            this.speisenÄndernToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.speisenÄndernToolStripMenuItem.Text = "Drucken";
+            this.vorspeiseBewertenToolStripMenuItem.Name = "vorspeiseBewertenToolStripMenuItem";
+            this.vorspeiseBewertenToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.vorspeiseBewertenToolStripMenuItem.Text = "Vorspeise bewerten";
+            // 
+            // bewertungenAnsehenToolStripMenuItem
+            // 
+            this.bewertungenAnsehenToolStripMenuItem.Name = "bewertungenAnsehenToolStripMenuItem";
+            this.bewertungenAnsehenToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.bewertungenAnsehenToolStripMenuItem.Text = "Bewertungen ansehen";
             // 
             // Form1
             // 
@@ -327,7 +343,6 @@
         private System.Windows.Forms.ToolStripMenuItem nachspeiseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alleSpeisenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wochenspeiseplanToolStripMenuItem;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem vorspeiseHinzufügen;
         private System.Windows.Forms.ToolStripMenuItem vorspeiseBearbeiten;
@@ -347,6 +362,9 @@
         private System.Windows.Forms.ToolStripMenuItem nachspeiseLöschenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem speisenÄndernToolStripMenuItem;
         internal System.Windows.Forms.ListView listViewVorspeise;
+        private System.Windows.Forms.ToolStripMenuItem vorspeiseBewertenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bewertungenAnsehenToolStripMenuItem;
+        internal System.Windows.Forms.ListView listView1;
     }
 }
 

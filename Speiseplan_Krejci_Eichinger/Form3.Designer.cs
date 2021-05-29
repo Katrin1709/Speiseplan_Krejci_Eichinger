@@ -30,13 +30,13 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtFrHaupt = new System.Windows.Forms.TextBox();
-            this.txtFrVor = new System.Windows.Forms.TextBox();
+            this.txt5 = new System.Windows.Forms.TextBox();
             this.txtDoNach = new System.Windows.Forms.TextBox();
             this.txtDoHaupt = new System.Windows.Forms.TextBox();
-            this.txtDoVor = new System.Windows.Forms.TextBox();
+            this.txt4 = new System.Windows.Forms.TextBox();
             this.txtMiNach = new System.Windows.Forms.TextBox();
             this.txtMiHaupt = new System.Windows.Forms.TextBox();
-            this.txtMiVor = new System.Windows.Forms.TextBox();
+            this.txt3 = new System.Windows.Forms.TextBox();
             this.txtMoHaupt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,9 +49,9 @@
             this.txtMoNach = new System.Windows.Forms.TextBox();
             this.txtDiNach = new System.Windows.Forms.TextBox();
             this.txtDiHaupt = new System.Windows.Forms.TextBox();
-            this.txtDiVor = new System.Windows.Forms.TextBox();
+            this.txt2 = new System.Windows.Forms.TextBox();
             this.txtFrNach = new System.Windows.Forms.TextBox();
-            this.txtMoVor = new System.Windows.Forms.TextBox();
+            this.textbox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.speisenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vorspeiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,13 +72,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.98413F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.98413F));
             this.tableLayoutPanel1.Controls.Add(this.txtFrHaupt, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.txtFrVor, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txt5, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtDoNach, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtDoHaupt, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtDoVor, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txt4, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtMiNach, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtMiHaupt, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtMiVor, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txt3, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtMoHaupt, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
@@ -91,9 +91,9 @@
             this.tableLayoutPanel1.Controls.Add(this.txtMoNach, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtDiNach, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtDiHaupt, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtDiVor, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txt2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtFrNach, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.txtMoVor, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textbox1, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 46);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -119,17 +119,17 @@
             this.txtFrHaupt.Size = new System.Drawing.Size(136, 21);
             this.txtFrHaupt.TabIndex = 22;
             // 
-            // txtFrVor
+            // txt5
             // 
-            this.txtFrVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtFrVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFrVor.Enabled = false;
-            this.txtFrVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFrVor.Location = new System.Drawing.Point(343, 442);
-            this.txtFrVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtFrVor.Name = "txtFrVor";
-            this.txtFrVor.Size = new System.Drawing.Size(136, 21);
-            this.txtFrVor.TabIndex = 21;
+            this.txt5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txt5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt5.Enabled = false;
+            this.txt5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt5.Location = new System.Drawing.Point(343, 442);
+            this.txt5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt5.Name = "txt5";
+            this.txt5.Size = new System.Drawing.Size(136, 21);
+            this.txt5.TabIndex = 21;
             // 
             // txtDoNach
             // 
@@ -155,17 +155,17 @@
             this.txtDoHaupt.Size = new System.Drawing.Size(136, 21);
             this.txtDoHaupt.TabIndex = 19;
             // 
-            // txtDoVor
+            // txt4
             // 
-            this.txtDoVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtDoVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDoVor.Enabled = false;
-            this.txtDoVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoVor.Location = new System.Drawing.Point(343, 354);
-            this.txtDoVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDoVor.Name = "txtDoVor";
-            this.txtDoVor.Size = new System.Drawing.Size(136, 21);
-            this.txtDoVor.TabIndex = 18;
+            this.txt4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txt4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt4.Enabled = false;
+            this.txt4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt4.Location = new System.Drawing.Point(343, 354);
+            this.txt4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt4.Name = "txt4";
+            this.txt4.Size = new System.Drawing.Size(136, 21);
+            this.txt4.TabIndex = 18;
             // 
             // txtMiNach
             // 
@@ -191,17 +191,17 @@
             this.txtMiHaupt.Size = new System.Drawing.Size(136, 21);
             this.txtMiHaupt.TabIndex = 16;
             // 
-            // txtMiVor
+            // txt3
             // 
-            this.txtMiVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtMiVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMiVor.Enabled = false;
-            this.txtMiVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMiVor.Location = new System.Drawing.Point(343, 266);
-            this.txtMiVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMiVor.Name = "txtMiVor";
-            this.txtMiVor.Size = new System.Drawing.Size(136, 21);
-            this.txtMiVor.TabIndex = 15;
+            this.txt3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txt3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt3.Enabled = false;
+            this.txt3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt3.Location = new System.Drawing.Point(343, 266);
+            this.txt3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt3.Name = "txt3";
+            this.txt3.Size = new System.Drawing.Size(136, 21);
+            this.txt3.TabIndex = 15;
             // 
             // txtMoHaupt
             // 
@@ -347,17 +347,17 @@
             this.txtDiHaupt.Size = new System.Drawing.Size(136, 21);
             this.txtDiHaupt.TabIndex = 12;
             // 
-            // txtDiVor
+            // txt2
             // 
-            this.txtDiVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtDiVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDiVor.Enabled = false;
-            this.txtDiVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiVor.Location = new System.Drawing.Point(343, 178);
-            this.txtDiVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDiVor.Name = "txtDiVor";
-            this.txtDiVor.Size = new System.Drawing.Size(136, 21);
-            this.txtDiVor.TabIndex = 11;
+            this.txt2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txt2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt2.Enabled = false;
+            this.txt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt2.Location = new System.Drawing.Point(343, 178);
+            this.txt2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt2.Name = "txt2";
+            this.txt2.Size = new System.Drawing.Size(136, 21);
+            this.txt2.TabIndex = 11;
             // 
             // txtFrNach
             // 
@@ -371,16 +371,17 @@
             this.txtFrNach.Size = new System.Drawing.Size(136, 21);
             this.txtFrNach.TabIndex = 14;
             // 
-            // txtMoVor
+            // textbox1
             // 
-            this.txtMoVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtMoVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMoVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMoVor.Location = new System.Drawing.Point(343, 90);
-            this.txtMoVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMoVor.Name = "txtMoVor";
-            this.txtMoVor.Size = new System.Drawing.Size(136, 21);
-            this.txtMoVor.TabIndex = 23;
+            this.textbox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textbox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textbox1.Location = new System.Drawing.Point(343, 90);
+            this.textbox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textbox1.Name = "textbox1";
+            this.textbox1.Size = new System.Drawing.Size(136, 21);
+            this.textbox1.TabIndex = 23;
+            this.textbox1.DoubleClick += new System.EventHandler(this.textbox1_DoubleClick);
             // 
             // menuStrip1
             // 
@@ -486,20 +487,20 @@
         private System.Windows.Forms.ToolStripMenuItem alleSpeisenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wochenspeiseplanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Drucken;
-        internal System.Windows.Forms.TextBox txtMoVor;
+        internal System.Windows.Forms.TextBox textbox1;
         internal System.Windows.Forms.TextBox txtFrHaupt;
-        internal System.Windows.Forms.TextBox txtFrVor;
+        internal System.Windows.Forms.TextBox txt5;
         internal System.Windows.Forms.TextBox txtDoNach;
         internal System.Windows.Forms.TextBox txtDoHaupt;
-        internal System.Windows.Forms.TextBox txtDoVor;
+        internal System.Windows.Forms.TextBox txt4;
         internal System.Windows.Forms.TextBox txtMiNach;
         internal System.Windows.Forms.TextBox txtMiHaupt;
-        internal System.Windows.Forms.TextBox txtMiVor;
+        internal System.Windows.Forms.TextBox txt3;
         internal System.Windows.Forms.TextBox txtMoHaupt;
         internal System.Windows.Forms.TextBox txtMoNach;
         internal System.Windows.Forms.TextBox txtDiNach;
         internal System.Windows.Forms.TextBox txtDiHaupt;
-        internal System.Windows.Forms.TextBox txtDiVor;
+        internal System.Windows.Forms.TextBox txt2;
         internal System.Windows.Forms.TextBox txtFrNach;
     }
 }
