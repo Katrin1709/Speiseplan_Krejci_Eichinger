@@ -14,7 +14,6 @@ namespace Speiseplan_Krejci_Eichinger
     {
         internal static Form3 f3;
 
-        //public event EventHandler DoubleClick;
         public Form3()
         {
             f3 = this;
@@ -23,7 +22,7 @@ namespace Speiseplan_Krejci_Eichinger
 
         Random rand = new Random();
 
-        private void Form3_Load(object sender, EventArgs e)
+        public void Form3_Load(object sender, EventArgs e)
         {
             Form1.f1.VorspeiseListeErstellen();
         }
@@ -41,10 +40,6 @@ namespace Speiseplan_Krejci_Eichinger
             Form1.f1.listViewEinrichten();
             Form1.f1.VorspeiseEinlesen();
             Form1.f1.Show();
-
-            textbox1.Text = "";
-            txt2.Text = "";
-            txt3.Text = "";
         }
 
         private void hauptspeiseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,24 +86,16 @@ namespace Speiseplan_Krejci_Eichinger
 
             wordapp.ActiveDocument.SaveAs2(Application.StartupPath + "\\../../../" + wochenspeiseplanToolStripMenuItem.Text + ".docx");
             wordapp.ActiveDocument.ExportAsFixedFormat(Application.StartupPath + "\\../../../" + wochenspeiseplanToolStripMenuItem.Text + ".pdf", Microsoft.Office.Interop.Word.WdExportFormat.wdExportFormatPDF, true);
-            //wordapp.ActiveDocument.Close(); schließt das offene Worddokument
-            //wordapp.Quit(); schlißt word
         }
 
         private void textbox1_DoubleClick(object sender, EventArgs e)
         {
+            this.Hide();
             Form1.f1.listViewEinrichten();
             Form1.f1.VorspeiseEinlesen();
             Form1.f1.Show();
 
-            //public void event EventHandler Form1.f1.listView1_DoubleClick(object sender, EventArgs e)
-         
-            //if (Form1.f1.listView1.DoubleClick)
-            //{
-            //    Form1.f1.lvItem = Form1.f1.listView1.SelectedItems[0];
-            //    textbox1.Text = Form1.f1.lvItem.SubItems[0].Text;
-            //}
-        
-    }
+            Form1.f1.auswählenToolStripMenuItem.Visible = true;
+        }
     }
 }

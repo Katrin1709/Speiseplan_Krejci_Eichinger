@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Collections;
+using System.IO;
+using Microsoft.VisualBasic;
 
 namespace Speiseplan_Krejci_Eichinger
 {
@@ -28,6 +31,8 @@ namespace Speiseplan_Krejci_Eichinger
         List<string> VorspeiseListe;
         List<string> HauptspeiseListe;
         List<string> NachspeiseListe;
+        
+        List<TextBox> TextBoxList = new List<TextBox>();
 
         string speise1;
         string speise2;
@@ -37,8 +42,6 @@ namespace Speiseplan_Krejci_Eichinger
 
         string zeile;
         int id;
-
-        Random rand = new Random(5);
 
         private void Speiseplan_Load(object sender, EventArgs e)
         {
@@ -51,16 +54,24 @@ namespace Speiseplan_Krejci_Eichinger
             NachspeiseListe = new List<string>();
 
             alleSpeisenEinlesen();
-
-            //ListeErstellen();
-            //for(int i = 0; i<VorspeiseListe.LastIndexOf; i++ )
-            //{
-
-            //}
         }
 
         public void VorspeiseListeErstellen()
         {
+            Form3.f3.textbox1.Text = "";
+            Form3.f3.txt2.Text = "";
+            Form3.f3.txt3.Text = "";
+            Form3.f3.txt4.Text = "";
+            Form3.f3.txt5.Text = "";
+
+            TextBoxList.Add(Form3.f3.textbox1);
+            TextBoxList.Add(Form3.f3.txt2);
+            TextBoxList.Add(Form3.f3.txt3);
+            TextBoxList.Add(Form3.f3.txt4);
+            TextBoxList.Add(Form3.f3.txt5);
+
+            Random rand = new Random(5);
+
             int letzteid = db.BerechnenInt("Select Max(NachspeiseID) from Nachspeise") + 1;
 
             for (int i = 0; i <= 4; i++)
@@ -68,52 +79,25 @@ namespace Speiseplan_Krejci_Eichinger
                 int index = rand.Next(1, letzteid);
 
                 sql = "Select Bezeichnung from Vorspeise Where VorspeiseID = " + index;
-                //MessageBox.Show(sql.ToString());
                 dr = db.Einlesen(sql);
 
                 while (dr.Read())
                 {
-                    VorspeiseListe.Clear();
-                    VorspeiseListe.Add(dr[0].ToString());
-                    //VorspeiseListe.RemoveAt(index);
+                    //VorspeiseListe.Add(dr[0].ToString());
 
-                    speise1 = VorspeiseListe[0];
-                    speise2 = VorspeiseListe[0];
-                    speise3 = VorspeiseListe[0];
-                    speise4 = VorspeiseListe[0];
-                    speise5 = VorspeiseListe[0];
-
-
-                    MessageBox.Show(dr[0].ToString());
-
-                    
-                    Form3.f3.textbox1.Text = dr[0].ToString();
-                    Form3.f3.txt2.Text = dr[0].ToString();
-                  
+                    foreach (TextBox tb in TextBoxList)
+                    {
+                        tb.Text = dr[0].ToString();
+                    }
                 }
+                //speise1 = VorspeiseListe[0];        
 
-                //bool doppelte;
-                //do
-                //{
-                //    doppelte = false;
-
-                
-                   
-                    //MessageBox.Show(index.ToString());
-
-                    //for (int a = 0; a < i; a++)
-                    //{
-                    //    if (index == a)
-                    //        doppelte = true;
-                    //}                    
-                //}
-                //while (doppelte == true);
+                //Form3.f3.textbox1.Text = speise1;
+                //Form3.f3.txt2.Text = speise1;
+                //Form3.f3.txt3.Text = speise1;
+                //Form3.f3.txt4.Text = speise1;
+                //Form3.f3.txt5.Text = speise1;
             }
-            Form3.f3.textbox1.Text = speise1;
-            Form3.f3.txt2.Text = speise2;
-            Form3.f3.txt3.Text = speise3;
-            Form3.f3.txt4.Text = speise4;
-            Form3.f3.txt5.Text = speise5;
         }
 
         public void listViewEinrichten()
@@ -291,7 +275,6 @@ namespace Speiseplan_Krejci_Eichinger
         {
             listViewEinrichten();
             NachspeiseEinlesen();
-
         }
 
         private void hauptspeiseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -310,7 +293,7 @@ namespace Speiseplan_Krejci_Eichinger
             if (listViewNachspeise.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Bitte wählen Sie eine Speise zum Bearbeiten aus!");
-                return; //ersparen der else
+                return;
             }
 
             Form2 f2 = new Form2();
@@ -343,7 +326,7 @@ namespace Speiseplan_Krejci_Eichinger
             if (listViewVorspeise.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Bitte wählen Sie eine Speise zum Bearbeiten aus!");
-                return; //ersparen der else
+                return;
             }
 
             Form2 f2 = new Form2();
@@ -376,7 +359,7 @@ namespace Speiseplan_Krejci_Eichinger
             if (listViewHauptspeise.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Bitte wählen Sie eine Speise zum Bearbeiten aus!");
-                return; //ersparen der else
+                return;
             }
 
             Form2 f2 = new Form2();
@@ -409,7 +392,7 @@ namespace Speiseplan_Krejci_Eichinger
             if(listViewVorspeise.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Bitte wählen Sie einen Zeile zum Löschen aus!");
-                return; //ersparen der else
+                return;
             }
 
             DialogResult dr = MessageBox.Show("Wollen Sie diese Speise wirklich löschen? ", "ACHTUNG:", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -431,7 +414,7 @@ namespace Speiseplan_Krejci_Eichinger
             if (listViewHauptspeise.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Bitte wählen Sie einen Zeile zum Löschen aus!");
-                return; //ersparen der else
+                return;
             }
 
             DialogResult dr = MessageBox.Show("Wollen Sie diese Speise wirklich löschen? ", "ACHTUNG:", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -453,7 +436,7 @@ namespace Speiseplan_Krejci_Eichinger
             if (listViewNachspeise.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Bitte wählen Sie einen Zeile zum Löschen aus!");
-                return; //ersparen der else
+                return;
             }
 
             DialogResult dr = MessageBox.Show("Wollen Sie diese Speise wirklich löschen? ", "ACHTUNG:", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -468,6 +451,79 @@ namespace Speiseplan_Krejci_Eichinger
                 db.Ausfuehren(sql);
             }
             alleSpeisenEinlesen();
+        }
+
+        private void vorspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
+
+            lvItem = listViewVorspeise.SelectedItems[0];
+
+            sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
+                    values ('" + label1.Text + "', '" + lvItem.SubItems[1].Text + "', '" + eingabe + "');";
+
+            db.Ausfuehren(sql);
+        }
+
+        private void bewertungenAnsehenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 f4 = new Form4();
+            Form4.f4.Text = "Wochenspeiseplan";
+            Form4.f4.EinlesenVorspeisen();
+            Form4.f4.ShowDialog();
+        }
+
+        private void bewertungenAnsehenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 f4 = new Form4();
+            Form4.f4.Text = "Wochenspeiseplan";
+            Form4.f4.EinlesenHauptspeisen();
+            Form4.f4.ShowDialog();
+        }
+
+        private void bewertungenAnsehenToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 f4 = new Form4();
+            Form4.f4.Text = "Wochenspeiseplan";
+            Form4.f4.EinlesenNachspeisen();
+            Form4.f4.ShowDialog();
+        }
+
+        private void hauptspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
+
+            lvItem = listViewHauptspeise.SelectedItems[0];
+
+            sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
+                    values ('" + label3.Text + "', '" + lvItem.SubItems[1].Text + "', '" + eingabe + "');";
+
+            db.Ausfuehren(sql);
+        }
+
+        private void nachspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
+
+            lvItem = listViewNachspeise.SelectedItems[0];
+
+            sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
+                    values ('" + label2.Text + "', '" + lvItem.SubItems[1].Text + "', '" + eingabe + "');";
+
+            db.Ausfuehren(sql);
+        }
+        
+        private void auswählenToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            lvItem = listView1.SelectedItems[0];
+            string text = lvItem.SubItems[1].Text;
+            Form3.f3.Show();
+            Form3.f3.textbox1.Text = text;
+            auswählenToolStripMenuItem.Visible = false;
         }
     }
 }
