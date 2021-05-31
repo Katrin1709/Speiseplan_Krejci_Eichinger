@@ -17,46 +17,39 @@ namespace Speiseplan_Krejci_Eichinger
     public partial class Form1 : Form
     {
         internal static Form1 f1;
+
         public Form1()
         {
             f1 = this;
             InitializeComponent();
         }
 
+        #region variable
         internal string sql;
         internal ListViewItem lvItem;
         internal OleDbDataReader dr;
         internal Datenbank db;
 
-        List<string> VorspeiseListe;
-        List<string> HauptspeiseListe;
-        List<string> NachspeiseListe;
-        
-        List<TextBox> TextBoxList = new List<TextBox>();
+        ArrayList arrVor = new ArrayList();
+        ArrayList arrHaupt = new ArrayList();
+        ArrayList arrNach = new ArrayList();
 
-        string speise1;
-        string speise2;
-        string speise3;
-        string speise4;
-        string speise5;
+        Random rand = new Random();
 
-        string zeile;
         int id;
+
+        #endregion
 
         private void Speiseplan_Load(object sender, EventArgs e)
         {
             //Datenbankobjekt
             db = new Datenbank();
 
-            //Liste initialisieren
-            VorspeiseListe = new List<string>();
-            HauptspeiseListe = new List<string>();
-            NachspeiseListe = new List<string>();
-
             alleSpeisenEinlesen();
         }
 
-        public void VorspeiseListeErstellen()
+        //Speisen zufällig ziehen
+        public void ZufälligeVorspeisen()
         {
             Form3.f3.textbox1.Text = "";
             Form3.f3.txt2.Text = "";
@@ -64,15 +57,14 @@ namespace Speiseplan_Krejci_Eichinger
             Form3.f3.txt4.Text = "";
             Form3.f3.txt5.Text = "";
 
-            TextBoxList.Add(Form3.f3.textbox1);
-            TextBoxList.Add(Form3.f3.txt2);
-            TextBoxList.Add(Form3.f3.txt3);
-            TextBoxList.Add(Form3.f3.txt4);
-            TextBoxList.Add(Form3.f3.txt5);
+            //TextBoxListVorspeise.Add(Form3.f3.textbox1);
+            //TextBoxListVorspeise.Add(Form3.f3.txt2);
+            //TextBoxListVorspeise.Add(Form3.f3.txt3);
+            //TextBoxListVorspeise.Add(Form3.f3.txt4);
+            //TextBoxListVorspeise.Add(Form3.f3.txt5);
+            
 
-            Random rand = new Random(5);
-
-            int letzteid = db.BerechnenInt("Select Max(NachspeiseID) from Nachspeise") + 1;
+            int letzteid = db.BerechnenInt("Select Max(VorspeiseId) from Vorspeise") ;
 
             for (int i = 0; i <= 4; i++)
             {
@@ -83,23 +75,94 @@ namespace Speiseplan_Krejci_Eichinger
 
                 while (dr.Read())
                 {
-                    //VorspeiseListe.Add(dr[0].ToString());
-
-                    foreach (TextBox tb in TextBoxList)
-                    {
-                        tb.Text = dr[0].ToString();
-                    }
+                    arrVor.Add(dr[0].ToString());
                 }
-                //speise1 = VorspeiseListe[0];        
-
-                //Form3.f3.textbox1.Text = speise1;
-                //Form3.f3.txt2.Text = speise1;
-                //Form3.f3.txt3.Text = speise1;
-                //Form3.f3.txt4.Text = speise1;
-                //Form3.f3.txt5.Text = speise1;
+                
             }
+            Form3.f3.textbox1.Text = arrVor[0] as string;
+            Form3.f3.txt2.Text = arrVor[1] as string;
+            Form3.f3.txt3.Text = arrVor[2] as string;
+            Form3.f3.txt4.Text = arrVor[3] as string;
+            Form3.f3.txt5.Text = arrVor[4] as string;
+        }
+        public void ZufälligeHauptspeise()
+        {
+            Form3.f3.txtMoHaupt.Text = "";
+            Form3.f3.txtDiHaupt.Text = "";
+            Form3.f3.txtMiHaupt.Text = "";
+            Form3.f3.txtDoHaupt.Text = "";
+            Form3.f3.txtFrHaupt.Text = "";
+
+            //TextBoxListHauptspeise.Add(Form3.f3.txtMoHaupt);
+            //TextBoxListHauptspeise.Add(Form3.f3.txtDiHaupt);
+            //TextBoxListHauptspeise.Add(Form3.f3.txtMiHaupt);
+            //TextBoxListHauptspeise.Add(Form3.f3.txtDoHaupt);
+            //TextBoxListHauptspeise.Add(Form3.f3.txtFrHaupt);
+          
+
+            int letzteid = db.BerechnenInt("Select Max(HauptspeiseId) from Hauptspeise");
+
+            for (int i = 0; i <= 4; i++)
+            {
+               
+                    int index = rand.Next(1, letzteid);
+
+                    //MessageBox.Show(index.ToString());
+
+                    sql = "Select Bezeichnung from Hauptspeise Where HauptspeiseId = " + index;
+                    dr = db.Einlesen(sql);
+                
+                    while (dr.Read())
+                    {
+                        arrHaupt.Add(dr[0].ToString());
+                    }
+                
+               
+            }
+            Form3.f3.txtMoHaupt.Text = arrHaupt[0] as string;
+            Form3.f3.txtDiHaupt.Text = arrHaupt[1] as string;
+            Form3.f3.txtMiHaupt.Text = arrHaupt[2] as string;
+            Form3.f3.txtDoHaupt.Text = arrHaupt[3] as string;
+            Form3.f3.txtFrHaupt.Text = arrHaupt[4] as string;
+        }
+        public void ZufälligeNachspeise()
+        {
+            Form3.f3.txtMoNach.Text = "";
+            Form3.f3.txtDiNach.Text = "";
+            Form3.f3.txtMiNach.Text = "";
+            Form3.f3.txtDoNach.Text = "";
+            Form3.f3.txtFrNach.Text = "";
+
+            //TextBoxListNachspeise.Add(Form3.f3.txtMoNach);
+            //TextBoxListNachspeise.Add(Form3.f3.txtDiNach);
+            //TextBoxListNachspeise.Add(Form3.f3.txtMiNach);
+            //TextBoxListNachspeise.Add(Form3.f3.txtDoNach);
+            //TextBoxListNachspeise.Add(Form3.f3.txtFrNach);
+            
+
+            int letzteid = db.BerechnenInt("Select Max(NachspeiseId) from Nachspeise") + 1;
+
+            for (int i = 0; i <= 4; i++)
+            {
+                int index = rand.Next(1, letzteid);
+
+                sql = "Select Bezeichnung from Nachspeise Where NachspeiseId = " + index;
+                dr = db.Einlesen(sql);
+
+                while (dr.Read())
+                {
+                    arrNach.Add(dr[0].ToString());
+                }
+
+            }
+            Form3.f3.txtMoNach.Text = arrNach[0] as string;
+            Form3.f3.txtDiNach.Text = arrNach[1] as string;
+            Form3.f3.txtMiNach.Text = arrNach[2] as string;
+            Form3.f3.txtDoNach.Text = arrNach[3] as string;
+            Form3.f3.txtFrNach.Text = arrNach[4] as string;
         }
 
+        //Speisen einlesen
         public void listViewEinrichten()
         {
             listView1.Columns.Clear();
@@ -110,7 +173,6 @@ namespace Speiseplan_Krejci_Eichinger
             listView1.Columns.Add("Bild");
             listView1.Font = new Font("Calibri", 12);
         }
-
         internal void VorspeiseEinlesen()
         {
             listViewVorspeise.Visible = false;
@@ -134,8 +196,7 @@ namespace Speiseplan_Krejci_Eichinger
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
-
-        public void NachspeiseEinlesen()
+        internal void NachspeiseEinlesen()
         {
             listViewVorspeise.Visible = false;
             listViewNachspeise.Visible = false;
@@ -157,9 +218,8 @@ namespace Speiseplan_Krejci_Eichinger
             }
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-        }
-        
-        public void HauptspeiseEinlesen()
+        } 
+        internal void HauptspeiseEinlesen()
         {
             listViewVorspeise.Visible = false;
             listViewNachspeise.Visible = false;
@@ -182,7 +242,6 @@ namespace Speiseplan_Krejci_Eichinger
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
-
         public void alleSpeisenEinlesen()
         {
             listViewVorspeise.Columns.Clear();
@@ -265,29 +324,28 @@ namespace Speiseplan_Krejci_Eichinger
             Form3.f3.ShowDialog();
         }
 
+        //Speisen aus Datenbank auslesen
         private void vorspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listViewEinrichten();
             VorspeiseEinlesen();
         }
-
         private void nachspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listViewEinrichten();
             NachspeiseEinlesen();
         }
-
         private void hauptspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listViewEinrichten();
             HauptspeiseEinlesen();
         }
-
         private void alleSpeisenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             alleSpeisenEinlesen();
         }
 
+        //Nachspeise bearbeiten / hinzufügen / löschen
         private void nachspeiseBearbeiten_Click(object sender, EventArgs e)
         {
             if (listViewNachspeise.SelectedItems.Count == 0)
@@ -308,7 +366,6 @@ namespace Speiseplan_Krejci_Eichinger
 
             f2.ShowDialog();
         }
-
         private void nachspeiseHinzufügen_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
@@ -320,117 +377,6 @@ namespace Speiseplan_Krejci_Eichinger
 
             f2.ShowDialog();
         }
-
-        private void vorspeiseBearbeiten_Click(object sender, EventArgs e)
-        {
-            if (listViewVorspeise.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Bitte wählen Sie eine Speise zum Bearbeiten aus!");
-                return;
-            }
-
-            Form2 f2 = new Form2();
-            f2.Text = "Vorspeise bearbeiten";
-
-            lvItem = listViewVorspeise.SelectedItems[0];
-            id = lvItem.Index;
-
-            f2.txtSpeiseID.Text = lvItem.SubItems[0].Text;
-            f2.cbSpeiseart.Text = label1.Text;
-            f2.txtBezeichnung.Text = lvItem.SubItems[1].Text;
-
-            f2.ShowDialog();
-        }
-
-        private void vorspeiseHinzufügen_Click(object sender, EventArgs e)
-        {
-            Form2 f2 = new Form2();
-            f2.Text = "Vorspeise hinzufügen";
-
-            int speiseid = db.BerechnenInt("Select Max(VorspeiseID) from Vorspeise") + 1;
-            f2.txtSpeiseID.Text = speiseid.ToString();
-            f2.cbSpeiseart.Text = label1.Text;
-
-            f2.ShowDialog();
-        }
-
-        private void hauptspeiseBearbeiten_Click(object sender, EventArgs e)
-        {
-            if (listViewHauptspeise.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Bitte wählen Sie eine Speise zum Bearbeiten aus!");
-                return;
-            }
-
-            Form2 f2 = new Form2();
-            f2.Text = "Hauptspeise bearbeiten";
-
-            lvItem = listViewHauptspeise.SelectedItems[0];
-            id = lvItem.Index;
-
-            f2.txtSpeiseID.Text = lvItem.SubItems[0].Text;
-            f2.cbSpeiseart.Text = label3.Text;
-            f2.txtBezeichnung.Text = lvItem.SubItems[1].Text;
-
-            f2.ShowDialog();
-        }
-
-        private void hauptspeiseHinzufügen_Click(object sender, EventArgs e)
-        {
-            Form2 f2 = new Form2();
-            f2.Text = "Hauptspeise hinzufügen";
-
-            int speiseid = db.BerechnenInt("Select Max(HauptspeiseID) from Hauptspeise") + 1;
-            f2.txtSpeiseID.Text = speiseid.ToString();
-            f2.cbSpeiseart.Text = label3.Text;
-
-            f2.ShowDialog();
-        }
-
-        private void vorspeiseLöschen_Click(object sender, EventArgs e)
-        {
-            if(listViewVorspeise.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Bitte wählen Sie einen Zeile zum Löschen aus!");
-                return;
-            }
-
-            DialogResult dr = MessageBox.Show("Wollen Sie diese Speise wirklich löschen? ", "ACHTUNG:", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
-            {
-                lvItem = listViewVorspeise.SelectedItems[0];
-                string id = lvItem.SubItems[0].Text;
-
-                sql = "Delete From Vorspeise Where VorspeiseID = " + id;
-                MessageBox.Show(sql);
-                db.Ausfuehren(sql);
-            }
-            alleSpeisenEinlesen();
-        }
-
-        private void hauptspeiseLöschenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (listViewHauptspeise.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Bitte wählen Sie einen Zeile zum Löschen aus!");
-                return;
-            }
-
-            DialogResult dr = MessageBox.Show("Wollen Sie diese Speise wirklich löschen? ", "ACHTUNG:", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
-            {
-                lvItem = listViewHauptspeise.SelectedItems[0];
-                string id = lvItem.SubItems[0].Text;
-
-                sql = "Delete From Hauptspeise Where HauptspeiseID = " + id;
-                MessageBox.Show(sql);
-                db.Ausfuehren(sql);
-            }
-            alleSpeisenEinlesen();
-        }
-
         private void nachspeiseLöschenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listViewNachspeise.SelectedItems.Count == 0)
@@ -453,6 +399,116 @@ namespace Speiseplan_Krejci_Eichinger
             alleSpeisenEinlesen();
         }
 
+        //Vorspeise bearbeiten / hinzufügen / löschen
+        private void vorspeiseBearbeiten_Click(object sender, EventArgs e)
+        {
+            if (listViewVorspeise.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Bitte wählen Sie eine Speise zum Bearbeiten aus!");
+                return;
+            }
+
+            Form2 f2 = new Form2();
+            f2.Text = "Vorspeise bearbeiten";
+
+            lvItem = listViewVorspeise.SelectedItems[0];
+            id = lvItem.Index;
+
+            f2.txtSpeiseID.Text = lvItem.SubItems[0].Text;
+            f2.cbSpeiseart.Text = label1.Text;
+            f2.txtBezeichnung.Text = lvItem.SubItems[1].Text;
+
+            f2.ShowDialog();
+        }
+        private void vorspeiseHinzufügen_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Text = "Vorspeise hinzufügen";
+
+            int speiseid = db.BerechnenInt("Select Max(VorspeiseID) from Vorspeise") + 1;
+            f2.txtSpeiseID.Text = speiseid.ToString();
+            f2.cbSpeiseart.Text = label1.Text;
+
+            f2.ShowDialog();
+        }
+        private void vorspeiseLöschen_Click(object sender, EventArgs e)
+        {
+            if (listViewVorspeise.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Bitte wählen Sie einen Zeile zum Löschen aus!");
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show("Wollen Sie diese Speise wirklich löschen? ", "ACHTUNG:", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                lvItem = listViewVorspeise.SelectedItems[0];
+                string id = lvItem.SubItems[0].Text;
+
+                sql = "Delete From Vorspeise Where VorspeiseID = " + id;
+                MessageBox.Show(sql);
+                db.Ausfuehren(sql);
+            }
+            alleSpeisenEinlesen();
+        }
+
+        //Hauptspeise bearbeiten / hinzufügen / löschen
+        private void hauptspeiseBearbeiten_Click(object sender, EventArgs e)
+        {
+            if (listViewHauptspeise.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Bitte wählen Sie eine Speise zum Bearbeiten aus!");
+                return;
+            }
+
+            Form2 f2 = new Form2();
+            f2.Text = "Hauptspeise bearbeiten";
+
+            lvItem = listViewHauptspeise.SelectedItems[0];
+            id = lvItem.Index;
+
+            f2.txtSpeiseID.Text = lvItem.SubItems[0].Text;
+            f2.cbSpeiseart.Text = label3.Text;
+            f2.txtBezeichnung.Text = lvItem.SubItems[1].Text;
+
+            f2.ShowDialog();
+        }
+        private void hauptspeiseHinzufügen_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Text = "Hauptspeise hinzufügen";
+
+            int speiseid = db.BerechnenInt("Select Max(HauptspeiseID) from Hauptspeise") + 1;
+            f2.txtSpeiseID.Text = speiseid.ToString();
+            f2.cbSpeiseart.Text = label3.Text;
+
+            f2.ShowDialog();
+        }
+        private void hauptspeiseLöschenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listViewHauptspeise.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Bitte wählen Sie einen Zeile zum Löschen aus!");
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show("Wollen Sie diese Speise wirklich löschen? ", "ACHTUNG:", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                lvItem = listViewHauptspeise.SelectedItems[0];
+                string id = lvItem.SubItems[0].Text;
+
+                sql = "Delete From Hauptspeise Where HauptspeiseID = " + id;
+                MessageBox.Show(sql);
+                db.Ausfuehren(sql);
+            }
+            alleSpeisenEinlesen();
+        }
+
+        
+        //Speisen bewerten
         private void vorspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
@@ -464,34 +520,6 @@ namespace Speiseplan_Krejci_Eichinger
 
             db.Ausfuehren(sql);
         }
-
-        private void bewertungenAnsehenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form4 f4 = new Form4();
-            Form4.f4.Text = "Wochenspeiseplan";
-            Form4.f4.EinlesenVorspeisen();
-            Form4.f4.ShowDialog();
-        }
-
-        private void bewertungenAnsehenToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form4 f4 = new Form4();
-            Form4.f4.Text = "Wochenspeiseplan";
-            Form4.f4.EinlesenHauptspeisen();
-            Form4.f4.ShowDialog();
-        }
-
-        private void bewertungenAnsehenToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form4 f4 = new Form4();
-            Form4.f4.Text = "Wochenspeiseplan";
-            Form4.f4.EinlesenNachspeisen();
-            Form4.f4.ShowDialog();
-        }
-
         private void hauptspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
@@ -503,7 +531,6 @@ namespace Speiseplan_Krejci_Eichinger
 
             db.Ausfuehren(sql);
         }
-
         private void nachspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
@@ -515,14 +542,100 @@ namespace Speiseplan_Krejci_Eichinger
 
             db.Ausfuehren(sql);
         }
-        
+
+        //Bewertungen ansehen
+        private void bewertungenAnsehenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 f4 = new Form4();
+            Form4.f4.Text = "Bewertung der Vorspeisen";
+            Form4.f4.EinlesenVorspeisen();
+            Form4.f4.ShowDialog();
+        }
+        private void bewertungenAnsehenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 f4 = new Form4();
+            Form4.f4.Text = "Bewertung der Hauptspeisen";
+            Form4.f4.EinlesenHauptspeisen();
+            Form4.f4.ShowDialog();
+        }
+        private void bewertungenAnsehenToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 f4 = new Form4();
+            Form4.f4.Text = "Bewertung der Nachspeisen";
+            Form4.f4.EinlesenNachspeisen();
+            Form4.f4.ShowDialog();
+        }
+
         private void auswählenToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             lvItem = listView1.SelectedItems[0];
             string text = lvItem.SubItems[1].Text;
             Form3.f3.Show();
-            Form3.f3.textbox1.Text = text;
+
+            if(Form3.f3.tag.Equals("MoVor"))
+            { 
+                Form3.f3.textbox1.Text = text;
+            }
+            else if(Form3.f3.tag.Equals("DiVor"))
+            {
+                Form3.f3.txt2.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("MiVor"))
+            {
+                Form3.f3.txt3.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("DoVor"))
+            {
+                Form3.f3.txt4.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("FrVor"))
+            {
+                Form3.f3.txt5.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("MoHaupt"))
+            {
+                Form3.f3.txtMoHaupt.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("DiHaupt"))
+            {
+                Form3.f3.txtDiHaupt.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("MiHaupt"))
+            {
+                Form3.f3.txtMiHaupt.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("DoHaupt"))
+            {
+                Form3.f3.txtDoHaupt.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("FrHaupt"))
+            {
+                Form3.f3.txtFrHaupt.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("MoNach"))
+            {
+                Form3.f3.txtMoNach.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("DiNach"))
+            {
+                Form3.f3.txtDiNach.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("MiNach"))
+            {
+                Form3.f3.txtMiNach.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("DoNach"))
+            {
+                Form3.f3.txtDiNach.Text = text;
+            }
+            else if (Form3.f3.tag.Equals("FrNach"))
+            {
+                Form3.f3.txtFrNach.Text = text;
+            }
             auswählenToolStripMenuItem.Visible = false;
         }
     }

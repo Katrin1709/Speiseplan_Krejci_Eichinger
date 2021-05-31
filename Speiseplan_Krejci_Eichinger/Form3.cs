@@ -20,11 +20,14 @@ namespace Speiseplan_Krejci_Eichinger
             InitializeComponent();
         }
 
-        Random rand = new Random();
+        
+        internal string tag;
 
         public void Form3_Load(object sender, EventArgs e)
         {
-            Form1.f1.VorspeiseListeErstellen();
+            Form1.f1.ZufälligeVorspeisen();
+            Form1.f1.ZufälligeHauptspeise();
+            Form1.f1.ZufälligeNachspeise();
         }
 
         private void alleSpeisenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,7 +70,7 @@ namespace Speiseplan_Krejci_Eichinger
                 return;
             }
             wordapp.Visible = true;
-            wordapp.Documents.Open(Application.StartupPath + "\\../../../Wochenspeiseplan.docx");
+            wordapp.Documents.Open(Application.StartupPath + "\\../../../../Wochenspeiseplan.docx");
             wordapp.ActiveDocument.FormFields["MoVor"].Result = textbox1.Text;
             wordapp.ActiveDocument.FormFields["MoHaupt"].Result = txtMoHaupt.Text;
             wordapp.ActiveDocument.FormFields["MoNach"].Result = txtMoNach.Text;
@@ -88,7 +91,7 @@ namespace Speiseplan_Krejci_Eichinger
             wordapp.ActiveDocument.ExportAsFixedFormat(Application.StartupPath + "\\../../../" + wochenspeiseplanToolStripMenuItem.Text + ".pdf", Microsoft.Office.Interop.Word.WdExportFormat.wdExportFormatPDF, true);
         }
 
-        private void textbox1_DoubleClick(object sender, EventArgs e)
+        public void VorspeiseÄndern()
         {
             this.Hide();
             Form1.f1.listViewEinrichten();
@@ -96,6 +99,102 @@ namespace Speiseplan_Krejci_Eichinger
             Form1.f1.Show();
 
             Form1.f1.auswählenToolStripMenuItem.Visible = true;
+        }
+        public void HauptspeiseÄndern()
+        {
+            this.Hide();
+            Form1.f1.listViewEinrichten();
+            Form1.f1.HauptspeiseEinlesen();
+            Form1.f1.Show();
+
+            Form1.f1.auswählenToolStripMenuItem.Visible = true;
+        }
+        public void NachspeiseÄndern()
+        {
+            this.Hide();
+            Form1.f1.listViewEinrichten();
+            Form1.f1.NachspeiseEinlesen();
+            Form1.f1.Show();
+
+            Form1.f1.auswählenToolStripMenuItem.Visible = true;
+        }
+
+        private void textbox1_DoubleClick(object sender, EventArgs e)
+        {
+            VorspeiseÄndern();
+            tag = "MoVor";
+        }
+        private void txt2_DoubleClick(object sender, EventArgs e)
+        {
+            VorspeiseÄndern();
+            tag = "DiVor";
+        }
+        private void txt3_DoubleClick(object sender, EventArgs e)
+        {
+            VorspeiseÄndern();
+            tag = "MiVor";
+        }
+        private void txt4_DoubleClick(object sender, EventArgs e)
+        {
+            VorspeiseÄndern();
+            tag = "DoVor";
+        }
+        private void txt5_DoubleClick(object sender, EventArgs e)
+        {
+            VorspeiseÄndern();
+            tag = "FrVor";
+        }
+
+        private void txtMoHaupt_DoubleClick(object sender, EventArgs e)
+        {
+            HauptspeiseÄndern();
+            tag = "MoHaupt";
+        }
+        private void txtDiHaupt_DoubleClick(object sender, EventArgs e)
+        {
+            HauptspeiseÄndern();
+            tag = "DiHaupt";
+        }
+        private void txtMiHaupt_DoubleClick(object sender, EventArgs e)
+        {
+            HauptspeiseÄndern();
+            tag = "MiHaupt";
+        }
+        private void txtDoHaupt_DoubleClick(object sender, EventArgs e)
+        {
+            HauptspeiseÄndern();
+            tag = "DoHaupt";
+        }
+        private void txtFrHaupt_DoubleClick(object sender, EventArgs e)
+        {
+            HauptspeiseÄndern();
+            tag = "FrHaupt";
+        }
+
+        private void txtMoNach_DoubleClick(object sender, EventArgs e)
+        {
+            NachspeiseÄndern();
+            tag = "MoNach";
+        }
+        private void txtDiNach_DoubleClick(object sender, EventArgs e)
+        {
+            NachspeiseÄndern();
+            tag = "DiNach";
+        }
+        private void txtMiNach_DoubleClick(object sender, EventArgs e)
+        {
+            NachspeiseÄndern();
+            tag = "MiNach";
+        }
+        private void txtDoNach_DoubleClick(object sender, EventArgs e)
+        {
+            NachspeiseÄndern();
+            tag = "DoNach";
+        }
+        private void txtFrNach_DoubleClick(object sender, EventArgs e)
+        {
+            NachspeiseÄndern();
+            tag = "FrNach";
         }
     }
 }

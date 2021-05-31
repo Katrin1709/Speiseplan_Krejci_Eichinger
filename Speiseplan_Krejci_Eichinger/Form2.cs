@@ -23,6 +23,7 @@ namespace Speiseplan_Krejci_Eichinger
             
         }
 
+        //Methode für Button speichern
         public void Veränderung()
         {
             try
@@ -124,6 +125,7 @@ namespace Speiseplan_Krejci_Eichinger
             Veränderung();
         }
 
+        //Enter
         private void txtBezeichnung_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Convert.ToInt32(e.KeyChar) == 13)

@@ -33,6 +33,7 @@ namespace Speiseplan_Krejci_Eichinger
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
+
         public void EinlesenVorspeisen()
         {
             Form1.f1.sql = "Select Kategorie, Bezeichnung, Bewertung FROM Bewertungen Where Kategorie = '" + Form1.f1.label1.Text + "' Order By Bezeichnung";
@@ -108,7 +109,7 @@ namespace Speiseplan_Krejci_Eichinger
         private void alleSpeisenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1.f1.ShowDialog();
+            Form1.f1.Show();
             Form1.f1.alleSpeisenEinlesen();
         }
 
@@ -117,7 +118,7 @@ namespace Speiseplan_Krejci_Eichinger
             this.Hide();
             Form3 f3 = new Form3();
             Form3.f3.Text = "Wochenspeiseplan";
-            Form3.f3.ShowDialog();
+            Form3.f3.Show();
         }
     }
 }
