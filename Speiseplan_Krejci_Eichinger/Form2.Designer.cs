@@ -36,6 +36,8 @@
             this.txtBezeichnung = new System.Windows.Forms.TextBox();
             this.cbSpeiseart = new System.Windows.Forms.ComboBox();
             this.btnSpeichern = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -117,7 +119,7 @@
             // 
             this.btnSpeichern.BackColor = System.Drawing.SystemColors.Window;
             this.btnSpeichern.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSpeichern.Location = new System.Drawing.Point(68, 641);
+            this.btnSpeichern.Location = new System.Drawing.Point(71, 620);
             this.btnSpeichern.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSpeichern.Name = "btnSpeichern";
             this.btnSpeichern.Size = new System.Drawing.Size(471, 44);
@@ -126,12 +128,25 @@
             this.btnSpeichern.UseVisualStyleBackColor = false;
             this.btnSpeichern.Click += new System.EventHandler(this.btnSpeichern_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(277, 473);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(262, 26);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(615, 752);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnSpeichern);
             this.Controls.Add(this.cbSpeiseart);
             this.Controls.Add(this.txtBezeichnung);
@@ -142,6 +157,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
@@ -159,5 +175,7 @@
         internal System.Windows.Forms.TextBox txtSpeiseID;
         internal System.Windows.Forms.TextBox txtBezeichnung;
         internal System.Windows.Forms.ComboBox cbSpeiseart;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        internal System.Windows.Forms.TextBox textBox1;
     }
 }

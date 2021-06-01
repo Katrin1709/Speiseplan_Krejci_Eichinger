@@ -18,9 +18,18 @@ namespace Speiseplan_Krejci_Eichinger
             InitializeComponent();
         }
 
+        #region Variablen
+        internal string pic;
+        #endregion
+
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+        }
+
+        private void btnSpeichern_Click(object sender, EventArgs e)
+        {
+            Veränderung();
         }
 
         //Methode für Button speichern
@@ -28,11 +37,11 @@ namespace Speiseplan_Krejci_Eichinger
         {
             try
             {
-                if (this.Text.Equals("Vorpeise bearbeiten"))
+                if (this.Text.Equals("Vorspeise bearbeiten"))
                 {
                     if (cbSpeiseart.SelectedIndex == -1 || txtBezeichnung.Text.Equals(""))
                     {
-                        MessageBox.Show("Sie haben nicht alle Felder ausgefüllt", "Information:", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sie haben nicht alle notwendigen Felder ausgefüllt", "Information:", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
@@ -43,10 +52,10 @@ namespace Speiseplan_Krejci_Eichinger
                 }
 
                 else if (this.Text.Equals("Vorspeise hinzufügen"))
-                {
-                    Form1.f1.sql = @"Insert into Vorspeise (Speiseart, Bezeichnung)
-                    values ('" + cbSpeiseart.Text + "', '" + txtBezeichnung.Text + "');";
-                    
+                {                    
+                    Form1.f1.sql = @"Insert into Vorspeise (Speiseart, Bezeichnung, Bildpfad)
+                    values ('" + cbSpeiseart.Text + "', '" + txtBezeichnung.Text + "', '" + textBox1.Text + "');";
+
                     Form1.f1.db.Ausfuehren(Form1.f1.sql);
                 }
                 Form1.f1.alleSpeisenEinlesen();
@@ -63,7 +72,7 @@ namespace Speiseplan_Krejci_Eichinger
                 {
                     if (cbSpeiseart.SelectedIndex == -1 || txtBezeichnung.Text.Equals(""))
                     {
-                        MessageBox.Show("Sie haben nicht alle Felder ausgefüllt", "Information:", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sie haben nicht alle notwendigen Felder ausgefüllt", "Information:", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
@@ -94,7 +103,7 @@ namespace Speiseplan_Krejci_Eichinger
                 {
                     if (cbSpeiseart.SelectedIndex == -1 || txtBezeichnung.Text.Equals(""))
                     {
-                        MessageBox.Show("Sie haben nicht alle Felder ausgefüllt", "Information:", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sie haben nicht alle notwendigen Felder ausgefüllt", "Information:", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
@@ -120,17 +129,40 @@ namespace Speiseplan_Krejci_Eichinger
             }
         }
 
-        private void btnSpeichern_Click(object sender, EventArgs e)
-        {
-            Veränderung();
-        }
-
         //Enter
         private void txtBezeichnung_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Convert.ToInt32(e.KeyChar) == 13)
             {
                 Veränderung();
+            }
+        }
+
+        public void VorspeiseBilderEinlesen()
+        {
+            List<string> pfadliste = new List<string>();
+
+            Form1.f1.sql = "Select Bildpfad From VorspeiseListe";
+            Form1.f1.db.Einlesen(Form1.f1.sql);
+            while(Form1.f1.dr.Read())
+            {
+                pfadliste.Add(Form1.f1.dr[0].ToString());
+            }
+
+            //foreach(String s in pfadliste)
+            //{
+            //    if()
+            //}
+        }
+
+        private void textBox1_DoubleClick(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            openFileDialog1.InitialDirectory = "D:";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = openFileDialog1.FileName;
+                pic = openFileDialog1.FileName;
             }
         }
     }

@@ -21,6 +21,8 @@ namespace Speiseplan_Krejci_Eichinger
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+
             listView1.Columns.Clear();
             listView1.FullRowSelect = true;
             listView1.View = View.Details;
@@ -33,7 +35,7 @@ namespace Speiseplan_Krejci_Eichinger
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-
+        //Bewertungen einlesen
         public void EinlesenVorspeisen()
         {
             Form1.f1.sql = "Select Kategorie, Bezeichnung, Bewertung FROM Bewertungen Where Kategorie = '" + Form1.f1.label1.Text + "' Order By Bezeichnung";
@@ -43,7 +45,7 @@ namespace Speiseplan_Krejci_Eichinger
             {
                 Form1.f1.lvItem = new ListViewItem(Form1.f1.dr[0].ToString());
                 Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[1].ToString());
-                Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[2].ToString() + " / 5");
+                Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[2].ToString());
                 listView1.Items.Add(Form1.f1.lvItem);
             }
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -59,7 +61,7 @@ namespace Speiseplan_Krejci_Eichinger
             {
                 Form1.f1.lvItem = new ListViewItem(Form1.f1.dr[0].ToString());
                 Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[1].ToString());
-                Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[2].ToString() + " / 5");
+                Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[2].ToString());
                 listView1.Items.Add(Form1.f1.lvItem);
             }
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -75,7 +77,7 @@ namespace Speiseplan_Krejci_Eichinger
             {
                 Form1.f1.lvItem = new ListViewItem(Form1.f1.dr[0].ToString());
                 Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[1].ToString());
-                Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[2].ToString() + " / 5");
+                Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[2].ToString());
                 listView1.Items.Add(Form1.f1.lvItem);
             }
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -84,32 +86,44 @@ namespace Speiseplan_Krejci_Eichinger
 
         private void vorspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form1.f1.Text = "Vorspeisen";
             this.Hide();
             Form1.f1.listViewEinrichten();
+            Form1.f1.i = 0;
+            Form1.f1.BilderAnzeigen();
             Form1.f1.VorspeiseEinlesen();
             Form1.f1.Show();
         }
 
         private void hauptspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form1.f1.Text = "Hauptspeisen";
             this.Hide();
             Form1.f1.listViewEinrichten();
+            Form1.f1.i = 0;
+            Form1.f1.BilderAnzeigen();
             Form1.f1.HauptspeiseEinlesen();
             Form1.f1.Show();
         }
 
         private void nachspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form1.f1.Text = "Nachspeisen";
             this.Hide();
             Form1.f1.listViewEinrichten();
+            Form1.f1.i = 0;
+            Form1.f1.BilderAnzeigen();
             Form1.f1.NachspeiseEinlesen();
             Form1.f1.Show();
         }
 
         private void alleSpeisenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form1.f1.Text = "Speisen";
             this.Hide();
             Form1.f1.Show();
+            Form1.f1.i = 0;
+            Form1.f1.BilderAnzeigen();
             Form1.f1.alleSpeisenEinlesen();
         }
 

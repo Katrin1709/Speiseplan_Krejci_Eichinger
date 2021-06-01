@@ -24,11 +24,14 @@ namespace Speiseplan_Krejci_Eichinger
             InitializeComponent();
         }
 
-        #region variable
+        #region Variablen
         internal string sql;
         internal ListViewItem lvItem;
         internal OleDbDataReader dr;
         internal Datenbank db;
+
+        ImageList bilderListe = new ImageList();
+        internal int i = 0;
 
         ArrayList arrVor = new ArrayList();
         ArrayList arrHaupt = new ArrayList();
@@ -37,39 +40,35 @@ namespace Speiseplan_Krejci_Eichinger
         Random rand = new Random();
 
         int id;
-
         #endregion
 
         private void Speiseplan_Load(object sender, EventArgs e)
         {
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+
             //Datenbankobjekt
             db = new Datenbank();
 
+            i = 0;
+            BilderAnzeigen();
             alleSpeisenEinlesen();
         }
 
         //Speisen zufällig ziehen
         public void ZufälligeVorspeisen()
         {
-            Form3.f3.textbox1.Text = "";
+            Form3.f3.textbox1.Clear();
             Form3.f3.txt2.Text = "";
             Form3.f3.txt3.Text = "";
             Form3.f3.txt4.Text = "";
             Form3.f3.txt5.Text = "";
-
-            //TextBoxListVorspeise.Add(Form3.f3.textbox1);
-            //TextBoxListVorspeise.Add(Form3.f3.txt2);
-            //TextBoxListVorspeise.Add(Form3.f3.txt3);
-            //TextBoxListVorspeise.Add(Form3.f3.txt4);
-            //TextBoxListVorspeise.Add(Form3.f3.txt5);
             
-
             int letzteid = db.BerechnenInt("Select Max(VorspeiseId) from Vorspeise") ;
-
+            
             for (int i = 0; i <= 4; i++)
             {
                 int index = rand.Next(1, letzteid);
-
+                
                 sql = "Select Bezeichnung from Vorspeise Where VorspeiseID = " + index;
                 dr = db.Einlesen(sql);
 
@@ -77,7 +76,7 @@ namespace Speiseplan_Krejci_Eichinger
                 {
                     arrVor.Add(dr[0].ToString());
                 }
-                
+
             }
             Form3.f3.textbox1.Text = arrVor[0] as string;
             Form3.f3.txt2.Text = arrVor[1] as string;
@@ -85,6 +84,7 @@ namespace Speiseplan_Krejci_Eichinger
             Form3.f3.txt4.Text = arrVor[3] as string;
             Form3.f3.txt5.Text = arrVor[4] as string;
         }
+
         public void ZufälligeHauptspeise()
         {
             Form3.f3.txtMoHaupt.Text = "";
@@ -92,19 +92,11 @@ namespace Speiseplan_Krejci_Eichinger
             Form3.f3.txtMiHaupt.Text = "";
             Form3.f3.txtDoHaupt.Text = "";
             Form3.f3.txtFrHaupt.Text = "";
-
-            //TextBoxListHauptspeise.Add(Form3.f3.txtMoHaupt);
-            //TextBoxListHauptspeise.Add(Form3.f3.txtDiHaupt);
-            //TextBoxListHauptspeise.Add(Form3.f3.txtMiHaupt);
-            //TextBoxListHauptspeise.Add(Form3.f3.txtDoHaupt);
-            //TextBoxListHauptspeise.Add(Form3.f3.txtFrHaupt);
-          
-
+            
             int letzteid = db.BerechnenInt("Select Max(HauptspeiseId) from Hauptspeise");
 
             for (int i = 0; i <= 4; i++)
             {
-               
                     int index = rand.Next(1, letzteid);
 
                     //MessageBox.Show(index.ToString());
@@ -116,8 +108,6 @@ namespace Speiseplan_Krejci_Eichinger
                     {
                         arrHaupt.Add(dr[0].ToString());
                     }
-                
-               
             }
             Form3.f3.txtMoHaupt.Text = arrHaupt[0] as string;
             Form3.f3.txtDiHaupt.Text = arrHaupt[1] as string;
@@ -125,6 +115,7 @@ namespace Speiseplan_Krejci_Eichinger
             Form3.f3.txtDoHaupt.Text = arrHaupt[3] as string;
             Form3.f3.txtFrHaupt.Text = arrHaupt[4] as string;
         }
+
         public void ZufälligeNachspeise()
         {
             Form3.f3.txtMoNach.Text = "";
@@ -132,14 +123,7 @@ namespace Speiseplan_Krejci_Eichinger
             Form3.f3.txtMiNach.Text = "";
             Form3.f3.txtDoNach.Text = "";
             Form3.f3.txtFrNach.Text = "";
-
-            //TextBoxListNachspeise.Add(Form3.f3.txtMoNach);
-            //TextBoxListNachspeise.Add(Form3.f3.txtDiNach);
-            //TextBoxListNachspeise.Add(Form3.f3.txtMiNach);
-            //TextBoxListNachspeise.Add(Form3.f3.txtDoNach);
-            //TextBoxListNachspeise.Add(Form3.f3.txtFrNach);
             
-
             int letzteid = db.BerechnenInt("Select Max(NachspeiseId) from Nachspeise") + 1;
 
             for (int i = 0; i <= 4; i++)
@@ -153,7 +137,6 @@ namespace Speiseplan_Krejci_Eichinger
                 {
                     arrNach.Add(dr[0].ToString());
                 }
-
             }
             Form3.f3.txtMoNach.Text = arrNach[0] as string;
             Form3.f3.txtDiNach.Text = arrNach[1] as string;
@@ -168,11 +151,12 @@ namespace Speiseplan_Krejci_Eichinger
             listView1.Columns.Clear();
             listView1.FullRowSelect = true;
             listView1.View = View.Details;
+            listView1.Columns.Add("Bild");
             listView1.Columns.Add("ID");
             listView1.Columns.Add("Speise");
-            listView1.Columns.Add("Bild");
             listView1.Font = new Font("Calibri", 12);
         }
+
         internal void VorspeiseEinlesen()
         {
             listViewVorspeise.Visible = false;
@@ -184,18 +168,33 @@ namespace Speiseplan_Krejci_Eichinger
             listView1.Visible = true;
             listView1.Items.Clear();
 
-            sql = "Select VorspeiseID, Bezeichnung FROM Vorspeise";
+            sql = "Select VorspeiseID, Bezeichnung, Bildpfad FROM Vorspeise";
 
             dr = db.Einlesen(sql);
             while (dr.Read())
             {
-                lvItem = new ListViewItem(dr[0].ToString());
+                lvItem = new ListViewItem();
+                try
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
+
+                }
+                catch
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + "\\Bilder\\default.png"));
+                    continue;
+                }
+                listView1.SmallImageList = bilderListe;
+                lvItem.ImageIndex = i;
+                i++;
+                lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listView1.Items.Add(lvItem);
             }
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
+
         internal void NachspeiseEinlesen()
         {
             listViewVorspeise.Visible = false;
@@ -207,18 +206,33 @@ namespace Speiseplan_Krejci_Eichinger
             listView1.Visible = true;
             listView1.Items.Clear();
 
-            sql = "Select NachspeiseID, Bezeichnung FROM Nachspeise";
+            sql = "Select NachspeiseID, Bezeichnung, Bildpfad FROM Nachspeise";
 
             dr = db.Einlesen(sql);
             while (dr.Read())
             {
-                lvItem = new ListViewItem(dr[0].ToString());
+                lvItem = new ListViewItem();
+                try
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
+
+                }
+                catch
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + "\\Bilder\\default.png"));
+                    continue;
+                }
+                listView1.SmallImageList = bilderListe;
+                lvItem.ImageIndex = i;
+                i++;
+                lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listView1.Items.Add(lvItem);
             }
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-        } 
+        }
+
         internal void HauptspeiseEinlesen()
         {
             listViewVorspeise.Visible = false;
@@ -230,42 +244,57 @@ namespace Speiseplan_Krejci_Eichinger
             listView1.Visible = true;
             listView1.Items.Clear();
 
-            sql = "Select HauptspeiseID, Bezeichnung FROM Hauptspeise";
+            sql = "Select HauptspeiseID, Bezeichnung, Bildpfad FROM Hauptspeise";
 
             dr = db.Einlesen(sql);
             while (dr.Read())
             {
-                lvItem = new ListViewItem(dr[0].ToString());
+                lvItem = new ListViewItem();
+                try
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
+
+                }
+                catch
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + "\\Bilder\\default.png"));
+                    continue;
+                }
+                listView1.SmallImageList = bilderListe;
+                lvItem.ImageIndex = i;
+                i++;
+                lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listView1.Items.Add(lvItem);
             }
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
+
         public void alleSpeisenEinlesen()
         {
             listViewVorspeise.Columns.Clear();
             listViewVorspeise.FullRowSelect = true;
             listViewVorspeise.View = View.Details;
+            listViewVorspeise.Columns.Add("Bild");
             listViewVorspeise.Columns.Add("ID");
             listViewVorspeise.Columns.Add("Speise");
-            listViewVorspeise.Columns.Add("Bild");
             listViewVorspeise.Font = new Font("Calibri", 12);
 
             listViewHauptspeise.Columns.Clear();
             listViewHauptspeise.FullRowSelect = true;
             listViewHauptspeise.View = View.Details;
+            listViewHauptspeise.Columns.Add("Bild");
             listViewHauptspeise.Columns.Add("ID");
             listViewHauptspeise.Columns.Add("Speise");
-            listViewHauptspeise.Columns.Add("Bild");
             listViewHauptspeise.Font = new Font("Calibri", 12);
 
             listViewNachspeise.Columns.Clear();
             listViewNachspeise.FullRowSelect = true;
             listViewNachspeise.View = View.Details;
+            listViewNachspeise.Columns.Add("Bild");
             listViewNachspeise.Columns.Add("ID");
             listViewNachspeise.Columns.Add("Speise");
-            listViewNachspeise.Columns.Add("Bild");
             listViewNachspeise.Font = new Font("Calibri", 12);
 
             label1.Visible = true;
@@ -280,11 +309,24 @@ namespace Speiseplan_Krejci_Eichinger
             listViewHauptspeise.Items.Clear();
             listViewNachspeise.Items.Clear();
 
-            sql = "Select VorspeiseID, Bezeichnung FROM Vorspeise";
+            sql = "Select VorspeiseID, Bezeichnung, Bildpfad FROM Vorspeise";
             dr = db.Einlesen(sql);
             while (dr.Read())
-            { 
-                lvItem = new ListViewItem(dr[0].ToString());
+            {
+                lvItem = new ListViewItem();
+                try
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
+                }
+                catch
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + "\\Bilder\\default.png"));
+                    continue;
+                }
+                listViewVorspeise.SmallImageList = bilderListe;
+                lvItem.ImageIndex = i;
+                i++;
+                lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listViewVorspeise.Items.Add(lvItem);
             }
@@ -292,11 +334,25 @@ namespace Speiseplan_Krejci_Eichinger
             listViewVorspeise.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
 
-            sql = "Select HauptspeiseID, Bezeichnung FROM Hauptspeise";
+            sql = "Select HauptspeiseID, Bezeichnung, Bildpfad FROM Hauptspeise";
             dr = db.Einlesen(sql);
             while (dr.Read())
             {
-                lvItem = new ListViewItem(dr[0].ToString());
+                lvItem = new ListViewItem();
+                try
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
+
+                }
+                catch
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + "\\Bilder\\default.png"));
+                    continue;
+                }
+                listViewHauptspeise.SmallImageList = bilderListe;
+                lvItem.ImageIndex = i;
+                i++;
+                lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listViewHauptspeise.Items.Add(lvItem);
             }
@@ -304,11 +360,25 @@ namespace Speiseplan_Krejci_Eichinger
             listViewHauptspeise.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
 
-            sql = "Select NachspeiseID, Bezeichnung FROM Nachspeise";
+            sql = "Select NachspeiseID, Bezeichnung, Bildpfad FROM Nachspeise";
             dr = db.Einlesen(sql);
             while (dr.Read())
             {
-                lvItem = new ListViewItem(dr[0].ToString());
+                lvItem = new ListViewItem();
+                try
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
+
+                }
+                catch
+                {
+                    bilderListe.Images.Add(Image.FromFile(Application.StartupPath + "\\Bilder\\default.png"));
+                    continue;
+                }
+                listViewNachspeise.SmallImageList = bilderListe;
+                lvItem.ImageIndex = i;
+                i++;
+                lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listViewNachspeise.Items.Add(lvItem);
             }
@@ -316,32 +386,54 @@ namespace Speiseplan_Krejci_Eichinger
             listViewNachspeise.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
+        public void BilderAnzeigen()
+        {
+            bilderListe.ColorDepth = ColorDepth.Depth32Bit;
+            bilderListe.ImageSize = new System.Drawing.Size(32, 32);
+            bilderListe.Images.Clear();
+        }
+
         private void wochenspeiseplanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form3 f3 = new Form3();
             Form3.f3.Text = "Wochenspeiseplan";
+            ZufälligeVorspeisen();
+            ZufälligeHauptspeise();
+            ZufälligeNachspeise();
             Form3.f3.ShowDialog();
         }
 
         //Speisen aus Datenbank auslesen
         private void vorspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form1.f1.Text = "Vorspeisen";
             listViewEinrichten();
+            i = 0;
+            BilderAnzeigen();
             VorspeiseEinlesen();
         }
         private void nachspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form1.f1.Text = "Nachspeisen";
             listViewEinrichten();
+            i = 0;
+            BilderAnzeigen();
             NachspeiseEinlesen();
         }
         private void hauptspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form1.f1.Text = "Hauptspeisen";
             listViewEinrichten();
+            i = 0;
+            BilderAnzeigen();
             HauptspeiseEinlesen();
         }
         private void alleSpeisenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form1.f1.Text = "Speisen";
+            i = 0;
+            BilderAnzeigen();
             alleSpeisenEinlesen();
         }
 
@@ -360,12 +452,13 @@ namespace Speiseplan_Krejci_Eichinger
             lvItem = listViewNachspeise.SelectedItems[0];
             id = lvItem.Index;
 
-            f2.txtSpeiseID.Text = lvItem.SubItems[0].Text;
+            f2.txtSpeiseID.Text = lvItem.SubItems[1].Text;
             f2.cbSpeiseart.Text = label2.Text;
-            f2.txtBezeichnung.Text = lvItem.SubItems[1].Text;
+            f2.txtBezeichnung.Text = lvItem.SubItems[2].Text;
 
             f2.ShowDialog();
         }
+
         private void nachspeiseHinzufügen_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
@@ -374,9 +467,12 @@ namespace Speiseplan_Krejci_Eichinger
             int speiseid = db.BerechnenInt("Select Max(NachspeiseID) from Nachspeise") + 1;
             f2.txtSpeiseID.Text = speiseid.ToString();
             f2.cbSpeiseart.Text = label2.Text;
+            f2.pic = Application.StartupPath + "\\Bilder\\default.png";
+            f2.textBox1.Text = f2.pic;
 
             f2.ShowDialog();
         }
+
         private void nachspeiseLöschenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listViewNachspeise.SelectedItems.Count == 0)
@@ -414,12 +510,13 @@ namespace Speiseplan_Krejci_Eichinger
             lvItem = listViewVorspeise.SelectedItems[0];
             id = lvItem.Index;
 
-            f2.txtSpeiseID.Text = lvItem.SubItems[0].Text;
+            f2.txtSpeiseID.Text = lvItem.SubItems[1].Text;
             f2.cbSpeiseart.Text = label1.Text;
-            f2.txtBezeichnung.Text = lvItem.SubItems[1].Text;
+            f2.txtBezeichnung.Text = lvItem.SubItems[2].Text;
 
             f2.ShowDialog();
         }
+
         private void vorspeiseHinzufügen_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
@@ -428,9 +525,12 @@ namespace Speiseplan_Krejci_Eichinger
             int speiseid = db.BerechnenInt("Select Max(VorspeiseID) from Vorspeise") + 1;
             f2.txtSpeiseID.Text = speiseid.ToString();
             f2.cbSpeiseart.Text = label1.Text;
+            f2.pic = Application.StartupPath + "\\Bilder\\default.png";
+            f2.textBox1.Text = f2.pic;
 
             f2.ShowDialog();
         }
+
         private void vorspeiseLöschen_Click(object sender, EventArgs e)
         {
             if (listViewVorspeise.SelectedItems.Count == 0)
@@ -468,12 +568,13 @@ namespace Speiseplan_Krejci_Eichinger
             lvItem = listViewHauptspeise.SelectedItems[0];
             id = lvItem.Index;
 
-            f2.txtSpeiseID.Text = lvItem.SubItems[0].Text;
+            f2.txtSpeiseID.Text = lvItem.SubItems[1].Text;
             f2.cbSpeiseart.Text = label3.Text;
-            f2.txtBezeichnung.Text = lvItem.SubItems[1].Text;
+            f2.txtBezeichnung.Text = lvItem.SubItems[2].Text;
 
             f2.ShowDialog();
         }
+
         private void hauptspeiseHinzufügen_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
@@ -482,9 +583,12 @@ namespace Speiseplan_Krejci_Eichinger
             int speiseid = db.BerechnenInt("Select Max(HauptspeiseID) from Hauptspeise") + 1;
             f2.txtSpeiseID.Text = speiseid.ToString();
             f2.cbSpeiseart.Text = label3.Text;
+            f2.pic = Application.StartupPath + "\\Bilder\\default.png";
+            f2.textBox1.Text = f2.pic;
 
             f2.ShowDialog();
         }
+
         private void hauptspeiseLöschenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listViewHauptspeise.SelectedItems.Count == 0)
@@ -507,40 +611,65 @@ namespace Speiseplan_Krejci_Eichinger
             alleSpeisenEinlesen();
         }
 
-        
         //Speisen bewerten
         private void vorspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
+            try
+            {
+                string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
 
-            lvItem = listViewVorspeise.SelectedItems[0];
+                lvItem = listViewVorspeise.SelectedItems[0];
 
-            sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
+                sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
                     values ('" + label1.Text + "', '" + lvItem.SubItems[1].Text + "', '" + eingabe + "');";
 
-            db.Ausfuehren(sql);
+                db.Ausfuehren(sql);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Sie haben keine Bewertung abgegeben!");
+                return;
+            }
         }
+
         private void hauptspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
+            try
+            {
+                string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
 
-            lvItem = listViewHauptspeise.SelectedItems[0];
+                lvItem = listViewHauptspeise.SelectedItems[0];
 
-            sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
+                sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
                     values ('" + label3.Text + "', '" + lvItem.SubItems[1].Text + "', '" + eingabe + "');";
 
-            db.Ausfuehren(sql);
+                db.Ausfuehren(sql);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sie haben keine Bewertung abgegeben!");
+                return;
+            }
         }
+
         private void nachspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
+            try
+            {
+                string eingabe = Microsoft.VisualBasic.Interaction.InputBox("Geben Sie Ihre Bewertung ab: (Punktesystem von 1 - 5)");
 
-            lvItem = listViewNachspeise.SelectedItems[0];
+                lvItem = listViewNachspeise.SelectedItems[0];
 
-            sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
+                sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
                     values ('" + label2.Text + "', '" + lvItem.SubItems[1].Text + "', '" + eingabe + "');";
 
-            db.Ausfuehren(sql);
+                db.Ausfuehren(sql);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sie haben keine Bewertung abgegeben!");
+                return;
+            }
         }
 
         //Bewertungen ansehen
@@ -552,6 +681,7 @@ namespace Speiseplan_Krejci_Eichinger
             Form4.f4.EinlesenVorspeisen();
             Form4.f4.ShowDialog();
         }
+
         private void bewertungenAnsehenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -560,6 +690,7 @@ namespace Speiseplan_Krejci_Eichinger
             Form4.f4.EinlesenHauptspeisen();
             Form4.f4.ShowDialog();
         }
+
         private void bewertungenAnsehenToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -573,7 +704,7 @@ namespace Speiseplan_Krejci_Eichinger
         {
             this.Hide();
             lvItem = listView1.SelectedItems[0];
-            string text = lvItem.SubItems[1].Text;
+            string text = lvItem.SubItems[2].Text;
             Form3.f3.Show();
 
             if(Form3.f3.tag.Equals("MoVor"))
