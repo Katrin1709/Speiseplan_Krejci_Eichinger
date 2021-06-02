@@ -37,7 +37,7 @@
             this.cbSpeiseart = new System.Windows.Forms.ComboBox();
             this.btnSpeichern = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBild = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -132,13 +132,13 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // textBox1
+            // txtBild
             // 
-            this.textBox1.Location = new System.Drawing.Point(277, 473);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 26);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
+            this.txtBild.Location = new System.Drawing.Point(277, 473);
+            this.txtBild.Name = "txtBild";
+            this.txtBild.Size = new System.Drawing.Size(262, 26);
+            this.txtBild.TabIndex = 8;
+            this.txtBild.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
             // 
             // Form2
             // 
@@ -146,7 +146,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(615, 752);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBild);
             this.Controls.Add(this.btnSpeichern);
             this.Controls.Add(this.cbSpeiseart);
             this.Controls.Add(this.txtBezeichnung);
@@ -176,6 +176,6 @@
         internal System.Windows.Forms.TextBox txtBezeichnung;
         internal System.Windows.Forms.ComboBox cbSpeiseart;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        internal System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.TextBox txtBild;
     }
 }

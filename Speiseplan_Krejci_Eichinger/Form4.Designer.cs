@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewBewertung = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,19 +43,19 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listView1
+            // listViewBewertung
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewBewertung.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(24, 36);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1401, 690);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listViewBewertung.HideSelection = false;
+            this.listViewBewertung.Location = new System.Drawing.Point(24, 36);
+            this.listViewBewertung.Name = "listViewBewertung";
+            this.listViewBewertung.Size = new System.Drawing.Size(1401, 690);
+            this.listViewBewertung.TabIndex = 0;
+            this.listViewBewertung.UseCompatibleStateImageBehavior = false;
+            this.listViewBewertung.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -145,7 +145,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1451, 752);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewBewertung);
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bewertungen";
@@ -159,7 +159,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewBewertung;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem speisenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vorspeiseToolStripMenuItem;

@@ -33,6 +33,7 @@ namespace Speiseplan_Krejci_Eichinger
             Form1.f1.ZufälligeNachspeise();
         }
 
+        #region Toolstrips Einlesen
         private void alleSpeisenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1.f1.Text = "Speisen";
@@ -75,8 +76,9 @@ namespace Speiseplan_Krejci_Eichinger
             Form1.f1.NachspeiseEinlesen();
             Form1.f1.Show();
         }
+        #endregion
 
-        //Speisen ändern
+        #region Speisen ändern
         public void VorspeiseÄndern()
         {
             this.Hide();
@@ -182,8 +184,9 @@ namespace Speiseplan_Krejci_Eichinger
             NachspeiseÄndern();
             tag = "FrNach";
         }
+        #endregion
 
-        //Drucken
+        #region Drucken
         private void Drucken_Click(object sender, EventArgs e)
         {
             Microsoft.Office.Interop.Word.Application wordapp = new Microsoft.Office.Interop.Word.Application();
@@ -194,19 +197,19 @@ namespace Speiseplan_Krejci_Eichinger
             }
             wordapp.Visible = true;
             wordapp.Documents.Open(Application.StartupPath + "\\../../../../Wochenspeiseplan.docx");
-            wordapp.ActiveDocument.FormFields["MoVor"].Result = textbox1.Text;
+            wordapp.ActiveDocument.FormFields["MoVor"].Result = txtMoVor.Text;
             wordapp.ActiveDocument.FormFields["MoHaupt"].Result = txtMoHaupt.Text;
             wordapp.ActiveDocument.FormFields["MoNach"].Result = txtMoNach.Text;
-            wordapp.ActiveDocument.FormFields["DiVor"].Result = txt2.Text;
+            wordapp.ActiveDocument.FormFields["DiVor"].Result = txtDiVor.Text;
             wordapp.ActiveDocument.FormFields["DiHaupt"].Result = txtDiHaupt.Text;
             wordapp.ActiveDocument.FormFields["DiNach"].Result = txtDiNach.Text;
-            wordapp.ActiveDocument.FormFields["MiVor"].Result = txt3.Text;
+            wordapp.ActiveDocument.FormFields["MiVor"].Result = txtMiVor.Text;
             wordapp.ActiveDocument.FormFields["MiHaupt"].Result = txtMiHaupt.Text;
             wordapp.ActiveDocument.FormFields["MiNach"].Result = txtMiNach.Text;
-            wordapp.ActiveDocument.FormFields["DoVor"].Result = txt4.Text;
+            wordapp.ActiveDocument.FormFields["DoVor"].Result = txtDoVor.Text;
             wordapp.ActiveDocument.FormFields["DoHaupt"].Result = txtDoHaupt.Text;
             wordapp.ActiveDocument.FormFields["DoNach"].Result = txtDoNach.Text;
-            wordapp.ActiveDocument.FormFields["FrVor"].Result = txt5.Text;
+            wordapp.ActiveDocument.FormFields["FrVor"].Result = txtFrVor.Text;
             wordapp.ActiveDocument.FormFields["FrHaupt"].Result = txtFrHaupt.Text;
             wordapp.ActiveDocument.FormFields["FrNach"].Result = txtFrNach.Text;
 
@@ -224,19 +227,19 @@ namespace Speiseplan_Krejci_Eichinger
             }
             wordapp.Visible = true;
             wordapp.Documents.Open(Application.StartupPath + "\\../../../../Wochenspeiseplan.docx");
-            wordapp.ActiveDocument.FormFields["MoVor"].Result = textbox1.Text;
+            wordapp.ActiveDocument.FormFields["MoVor"].Result = txtMoVor.Text;
             wordapp.ActiveDocument.FormFields["MoHaupt"].Result = txtMoHaupt.Text;
             wordapp.ActiveDocument.FormFields["MoNach"].Result = txtMoNach.Text;
-            wordapp.ActiveDocument.FormFields["DiVor"].Result = txt2.Text;
+            wordapp.ActiveDocument.FormFields["DiVor"].Result = txtDiVor.Text;
             wordapp.ActiveDocument.FormFields["DiHaupt"].Result = txtDiHaupt.Text;
             wordapp.ActiveDocument.FormFields["DiNach"].Result = txtDiNach.Text;
-            wordapp.ActiveDocument.FormFields["MiVor"].Result = txt3.Text;
+            wordapp.ActiveDocument.FormFields["MiVor"].Result = txtMiVor.Text;
             wordapp.ActiveDocument.FormFields["MiHaupt"].Result = txtMiHaupt.Text;
             wordapp.ActiveDocument.FormFields["MiNach"].Result = txtMiNach.Text;
-            wordapp.ActiveDocument.FormFields["DoVor"].Result = txt4.Text;
+            wordapp.ActiveDocument.FormFields["DoVor"].Result = txtDoVor.Text;
             wordapp.ActiveDocument.FormFields["DoHaupt"].Result = txtDoHaupt.Text;
             wordapp.ActiveDocument.FormFields["DoNach"].Result = txtDoNach.Text;
-            wordapp.ActiveDocument.FormFields["FrVor"].Result = txt5.Text;
+            wordapp.ActiveDocument.FormFields["FrVor"].Result = txtFrVor.Text;
             wordapp.ActiveDocument.FormFields["FrHaupt"].Result = txtFrHaupt.Text;
             wordapp.ActiveDocument.FormFields["FrNach"].Result = txtFrNach.Text;
 
@@ -253,24 +256,24 @@ namespace Speiseplan_Krejci_Eichinger
             }
             wordapp.Visible = true;
             wordapp.Documents.Open(Application.StartupPath + "\\../../../../Wochenspeiseplan.docx");
-            wordapp.ActiveDocument.FormFields["MoVor"].Result = textbox1.Text;
+            wordapp.ActiveDocument.FormFields["MoVor"].Result = txtMoVor.Text;
             wordapp.ActiveDocument.FormFields["MoHaupt"].Result = txtMoHaupt.Text;
             wordapp.ActiveDocument.FormFields["MoNach"].Result = txtMoNach.Text;
-            wordapp.ActiveDocument.FormFields["DiVor"].Result = txt2.Text;
+            wordapp.ActiveDocument.FormFields["DiVor"].Result = txtDiVor.Text;
             wordapp.ActiveDocument.FormFields["DiHaupt"].Result = txtDiHaupt.Text;
             wordapp.ActiveDocument.FormFields["DiNach"].Result = txtDiNach.Text;
-            wordapp.ActiveDocument.FormFields["MiVor"].Result = txt3.Text;
+            wordapp.ActiveDocument.FormFields["MiVor"].Result = txtMiVor.Text;
             wordapp.ActiveDocument.FormFields["MiHaupt"].Result = txtMiHaupt.Text;
             wordapp.ActiveDocument.FormFields["MiNach"].Result = txtMiNach.Text;
-            wordapp.ActiveDocument.FormFields["DoVor"].Result = txt4.Text;
+            wordapp.ActiveDocument.FormFields["DoVor"].Result = txtDoVor.Text;
             wordapp.ActiveDocument.FormFields["DoHaupt"].Result = txtDoHaupt.Text;
             wordapp.ActiveDocument.FormFields["DoNach"].Result = txtDoNach.Text;
-            wordapp.ActiveDocument.FormFields["FrVor"].Result = txt5.Text;
+            wordapp.ActiveDocument.FormFields["FrVor"].Result = txtFrVor.Text;
             wordapp.ActiveDocument.FormFields["FrHaupt"].Result = txtFrHaupt.Text;
             wordapp.ActiveDocument.FormFields["FrNach"].Result = txtFrNach.Text;
-
-            //wordapp.ActiveDocument.SaveAs2(Application.StartupPath + "\\../../../" + wochenspeiseplanToolStripMenuItem.Text + ".pdf");
+            
             wordapp.ActiveDocument.ExportAsFixedFormat(Application.StartupPath + "\\../../../" + wochenspeiseplanToolStripMenuItem.Text + ".pdf", Microsoft.Office.Interop.Word.WdExportFormat.wdExportFormatPDF, true);
         }
+        #endregion
     }
 }

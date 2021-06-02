@@ -30,28 +30,28 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtFrHaupt = new System.Windows.Forms.TextBox();
-            this.txt5 = new System.Windows.Forms.TextBox();
+            this.txtFrVor = new System.Windows.Forms.TextBox();
             this.txtDoNach = new System.Windows.Forms.TextBox();
             this.txtDoHaupt = new System.Windows.Forms.TextBox();
-            this.txt4 = new System.Windows.Forms.TextBox();
+            this.txtDoVor = new System.Windows.Forms.TextBox();
             this.txtMiNach = new System.Windows.Forms.TextBox();
             this.txtMiHaupt = new System.Windows.Forms.TextBox();
-            this.txt3 = new System.Windows.Forms.TextBox();
+            this.txtMiVor = new System.Windows.Forms.TextBox();
             this.txtMoHaupt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbDienstag = new System.Windows.Forms.Label();
+            this.lbMontag = new System.Windows.Forms.Label();
+            this.lbMittwoch = new System.Windows.Forms.Label();
+            this.lbDonnerstag = new System.Windows.Forms.Label();
+            this.lbFreitag = new System.Windows.Forms.Label();
+            this.lbVorspeise = new System.Windows.Forms.Label();
+            this.lbHauptspeise = new System.Windows.Forms.Label();
+            this.lbNachspeise = new System.Windows.Forms.Label();
             this.txtMoNach = new System.Windows.Forms.TextBox();
             this.txtDiNach = new System.Windows.Forms.TextBox();
             this.txtDiHaupt = new System.Windows.Forms.TextBox();
-            this.txt2 = new System.Windows.Forms.TextBox();
+            this.txtDiVor = new System.Windows.Forms.TextBox();
             this.txtFrNach = new System.Windows.Forms.TextBox();
-            this.textbox1 = new System.Windows.Forms.TextBox();
+            this.txtMoVor = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.speisenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vorspeiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +59,7 @@
             this.nachspeiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alleSpeisenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wochenspeiseplanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Drucken = new System.Windows.Forms.ToolStripMenuItem();
+            this.alsWordPdfDruckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alsWordDruckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alsPDFDruckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
@@ -74,28 +74,28 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Controls.Add(this.txtFrHaupt, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.txt5, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtFrVor, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtDoNach, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtDoHaupt, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txt4, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtDoVor, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtMiNach, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtMiHaupt, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txt3, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtMiVor, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtMoHaupt, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbDienstag, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lbMontag, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbMittwoch, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lbDonnerstag, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lbFreitag, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.lbVorspeise, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbHauptspeise, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbNachspeise, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtMoNach, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtDiNach, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtDiHaupt, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txt2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtDiVor, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtFrNach, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textbox1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtMoVor, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 58);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -123,19 +123,19 @@
             this.txtFrHaupt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtFrHaupt.DoubleClick += new System.EventHandler(this.txtFrHaupt_DoubleClick);
             // 
-            // txt5
+            // txtFrVor
             // 
-            this.txt5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txt5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt5.Location = new System.Drawing.Point(223, 552);
-            this.txt5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt5.Multiline = true;
-            this.txt5.Name = "txt5";
-            this.txt5.Size = new System.Drawing.Size(296, 111);
-            this.txt5.TabIndex = 21;
-            this.txt5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt5.DoubleClick += new System.EventHandler(this.txt5_DoubleClick);
+            this.txtFrVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtFrVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFrVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFrVor.Location = new System.Drawing.Point(223, 552);
+            this.txtFrVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFrVor.Multiline = true;
+            this.txtFrVor.Name = "txtFrVor";
+            this.txtFrVor.Size = new System.Drawing.Size(296, 111);
+            this.txtFrVor.TabIndex = 21;
+            this.txtFrVor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFrVor.DoubleClick += new System.EventHandler(this.txt5_DoubleClick);
             // 
             // txtDoNach
             // 
@@ -165,19 +165,19 @@
             this.txtDoHaupt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDoHaupt.DoubleClick += new System.EventHandler(this.txtDoHaupt_DoubleClick);
             // 
-            // txt4
+            // txtDoVor
             // 
-            this.txt4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txt4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt4.Location = new System.Drawing.Point(223, 442);
-            this.txt4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt4.Multiline = true;
-            this.txt4.Name = "txt4";
-            this.txt4.Size = new System.Drawing.Size(296, 106);
-            this.txt4.TabIndex = 18;
-            this.txt4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt4.DoubleClick += new System.EventHandler(this.txt4_DoubleClick);
+            this.txtDoVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtDoVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDoVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoVor.Location = new System.Drawing.Point(223, 442);
+            this.txtDoVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDoVor.Multiline = true;
+            this.txtDoVor.Name = "txtDoVor";
+            this.txtDoVor.Size = new System.Drawing.Size(296, 106);
+            this.txtDoVor.TabIndex = 18;
+            this.txtDoVor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDoVor.DoubleClick += new System.EventHandler(this.txt4_DoubleClick);
             // 
             // txtMiNach
             // 
@@ -207,19 +207,19 @@
             this.txtMiHaupt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMiHaupt.DoubleClick += new System.EventHandler(this.txtMiHaupt_DoubleClick);
             // 
-            // txt3
+            // txtMiVor
             // 
-            this.txt3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txt3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt3.Location = new System.Drawing.Point(223, 332);
-            this.txt3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt3.Multiline = true;
-            this.txt3.Name = "txt3";
-            this.txt3.Size = new System.Drawing.Size(296, 106);
-            this.txt3.TabIndex = 15;
-            this.txt3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt3.DoubleClick += new System.EventHandler(this.txt3_DoubleClick);
+            this.txtMiVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtMiVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMiVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMiVor.Location = new System.Drawing.Point(223, 332);
+            this.txtMiVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMiVor.Multiline = true;
+            this.txtMiVor.Name = "txtMiVor";
+            this.txtMiVor.Size = new System.Drawing.Size(296, 106);
+            this.txtMiVor.TabIndex = 15;
+            this.txtMiVor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMiVor.DoubleClick += new System.EventHandler(this.txt3_DoubleClick);
             // 
             // txtMoHaupt
             // 
@@ -235,101 +235,101 @@
             this.txtMoHaupt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMoHaupt.DoubleClick += new System.EventHandler(this.txtMoHaupt_DoubleClick);
             // 
-            // label2
+            // lbDienstag
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 220);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 33);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Dienstag";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbDienstag.AutoSize = true;
+            this.lbDienstag.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDienstag.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDienstag.Location = new System.Drawing.Point(3, 220);
+            this.lbDienstag.Name = "lbDienstag";
+            this.lbDienstag.Size = new System.Drawing.Size(155, 33);
+            this.lbDienstag.TabIndex = 1;
+            this.lbDienstag.Text = "Dienstag";
+            this.lbDienstag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lbMontag
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Montag";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbMontag.AutoSize = true;
+            this.lbMontag.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbMontag.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMontag.Location = new System.Drawing.Point(3, 110);
+            this.lbMontag.Name = "lbMontag";
+            this.lbMontag.Size = new System.Drawing.Size(155, 33);
+            this.lbMontag.TabIndex = 0;
+            this.lbMontag.Text = "Montag";
+            this.lbMontag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lbMittwoch
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 330);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 33);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Mittwoch";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbMittwoch.AutoSize = true;
+            this.lbMittwoch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbMittwoch.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMittwoch.Location = new System.Drawing.Point(3, 330);
+            this.lbMittwoch.Name = "lbMittwoch";
+            this.lbMittwoch.Size = new System.Drawing.Size(155, 33);
+            this.lbMittwoch.TabIndex = 2;
+            this.lbMittwoch.Text = "Mittwoch";
+            this.lbMittwoch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lbDonnerstag
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 440);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 33);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Donnerstag";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbDonnerstag.AutoSize = true;
+            this.lbDonnerstag.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDonnerstag.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDonnerstag.Location = new System.Drawing.Point(3, 440);
+            this.lbDonnerstag.Name = "lbDonnerstag";
+            this.lbDonnerstag.Size = new System.Drawing.Size(155, 33);
+            this.lbDonnerstag.TabIndex = 3;
+            this.lbDonnerstag.Text = "Donnerstag";
+            this.lbDonnerstag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // lbFreitag
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 550);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(155, 33);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Freitag";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbFreitag.AutoSize = true;
+            this.lbFreitag.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbFreitag.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFreitag.Location = new System.Drawing.Point(3, 550);
+            this.lbFreitag.Name = "lbFreitag";
+            this.lbFreitag.Size = new System.Drawing.Size(155, 33);
+            this.lbFreitag.TabIndex = 4;
+            this.lbFreitag.Text = "Freitag";
+            this.lbFreitag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // lbVorspeise
             // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(164, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(415, 33);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Vorspeise";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbVorspeise.AutoSize = true;
+            this.lbVorspeise.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbVorspeise.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVorspeise.Location = new System.Drawing.Point(164, 0);
+            this.lbVorspeise.Name = "lbVorspeise";
+            this.lbVorspeise.Size = new System.Drawing.Size(415, 33);
+            this.lbVorspeise.TabIndex = 5;
+            this.lbVorspeise.Text = "Vorspeise";
+            this.lbVorspeise.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // lbHauptspeise
             // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(585, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(415, 33);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Hauptspeise";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbHauptspeise.AutoSize = true;
+            this.lbHauptspeise.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbHauptspeise.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHauptspeise.Location = new System.Drawing.Point(585, 0);
+            this.lbHauptspeise.Name = "lbHauptspeise";
+            this.lbHauptspeise.Size = new System.Drawing.Size(415, 33);
+            this.lbHauptspeise.TabIndex = 6;
+            this.lbHauptspeise.Text = "Hauptspeise";
+            this.lbHauptspeise.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // lbNachspeise
             // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1006, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(415, 33);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Nachspeise";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbNachspeise.AutoSize = true;
+            this.lbNachspeise.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbNachspeise.Font = new System.Drawing.Font("Minion Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNachspeise.Location = new System.Drawing.Point(1006, 0);
+            this.lbNachspeise.Name = "lbNachspeise";
+            this.lbNachspeise.Size = new System.Drawing.Size(415, 33);
+            this.lbNachspeise.TabIndex = 7;
+            this.lbNachspeise.Text = "Nachspeise";
+            this.lbNachspeise.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtMoNach
             // 
@@ -373,19 +373,19 @@
             this.txtDiHaupt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDiHaupt.DoubleClick += new System.EventHandler(this.txtDiHaupt_DoubleClick);
             // 
-            // txt2
+            // txtDiVor
             // 
-            this.txt2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txt2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt2.Location = new System.Drawing.Point(223, 222);
-            this.txt2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt2.Multiline = true;
-            this.txt2.Name = "txt2";
-            this.txt2.Size = new System.Drawing.Size(296, 106);
-            this.txt2.TabIndex = 11;
-            this.txt2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt2.DoubleClick += new System.EventHandler(this.txt2_DoubleClick);
+            this.txtDiVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtDiVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDiVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiVor.Location = new System.Drawing.Point(223, 222);
+            this.txtDiVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDiVor.Multiline = true;
+            this.txtDiVor.Name = "txtDiVor";
+            this.txtDiVor.Size = new System.Drawing.Size(296, 106);
+            this.txtDiVor.TabIndex = 11;
+            this.txtDiVor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDiVor.DoubleClick += new System.EventHandler(this.txt2_DoubleClick);
             // 
             // txtFrNach
             // 
@@ -401,19 +401,19 @@
             this.txtFrNach.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtFrNach.DoubleClick += new System.EventHandler(this.txtFrNach_DoubleClick);
             // 
-            // textbox1
+            // txtMoVor
             // 
-            this.textbox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textbox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textbox1.Location = new System.Drawing.Point(223, 112);
-            this.textbox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textbox1.Multiline = true;
-            this.textbox1.Name = "textbox1";
-            this.textbox1.Size = new System.Drawing.Size(296, 106);
-            this.textbox1.TabIndex = 23;
-            this.textbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textbox1.DoubleClick += new System.EventHandler(this.textbox1_DoubleClick);
+            this.txtMoVor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtMoVor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMoVor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMoVor.Location = new System.Drawing.Point(223, 112);
+            this.txtMoVor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMoVor.Multiline = true;
+            this.txtMoVor.Name = "txtMoVor";
+            this.txtMoVor.Size = new System.Drawing.Size(296, 106);
+            this.txtMoVor.TabIndex = 23;
+            this.txtMoVor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMoVor.DoubleClick += new System.EventHandler(this.textbox1_DoubleClick);
             // 
             // menuStrip1
             // 
@@ -443,47 +443,47 @@
             // vorspeiseToolStripMenuItem
             // 
             this.vorspeiseToolStripMenuItem.Name = "vorspeiseToolStripMenuItem";
-            this.vorspeiseToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.vorspeiseToolStripMenuItem.Size = new System.Drawing.Size(204, 30);
             this.vorspeiseToolStripMenuItem.Text = "Vorspeisen";
             this.vorspeiseToolStripMenuItem.Click += new System.EventHandler(this.vorspeiseToolStripMenuItem_Click);
             // 
             // hauptspeiseToolStripMenuItem
             // 
             this.hauptspeiseToolStripMenuItem.Name = "hauptspeiseToolStripMenuItem";
-            this.hauptspeiseToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.hauptspeiseToolStripMenuItem.Size = new System.Drawing.Size(204, 30);
             this.hauptspeiseToolStripMenuItem.Text = "Hauptspeisen";
             this.hauptspeiseToolStripMenuItem.Click += new System.EventHandler(this.hauptspeiseToolStripMenuItem_Click);
             // 
             // nachspeiseToolStripMenuItem
             // 
             this.nachspeiseToolStripMenuItem.Name = "nachspeiseToolStripMenuItem";
-            this.nachspeiseToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.nachspeiseToolStripMenuItem.Size = new System.Drawing.Size(204, 30);
             this.nachspeiseToolStripMenuItem.Text = "Nachspeisen";
             this.nachspeiseToolStripMenuItem.Click += new System.EventHandler(this.nachspeiseToolStripMenuItem_Click);
             // 
             // alleSpeisenToolStripMenuItem
             // 
             this.alleSpeisenToolStripMenuItem.Name = "alleSpeisenToolStripMenuItem";
-            this.alleSpeisenToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.alleSpeisenToolStripMenuItem.Size = new System.Drawing.Size(204, 30);
             this.alleSpeisenToolStripMenuItem.Text = "Alle Speisen";
             this.alleSpeisenToolStripMenuItem.Click += new System.EventHandler(this.alleSpeisenToolStripMenuItem_Click);
             // 
             // wochenspeiseplanToolStripMenuItem
             // 
             this.wochenspeiseplanToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Drucken,
+            this.alsWordPdfDruckenToolStripMenuItem,
             this.alsWordDruckenToolStripMenuItem,
             this.alsPDFDruckenToolStripMenuItem});
             this.wochenspeiseplanToolStripMenuItem.Name = "wochenspeiseplanToolStripMenuItem";
             this.wochenspeiseplanToolStripMenuItem.Size = new System.Drawing.Size(171, 29);
             this.wochenspeiseplanToolStripMenuItem.Text = "Wochenspeiseplan";
             // 
-            // Drucken
+            // alsWordPdfDruckenToolStripMenuItem
             // 
-            this.Drucken.Name = "Drucken";
-            this.Drucken.Size = new System.Drawing.Size(288, 30);
-            this.Drucken.Text = "als Word + PDF drucken";
-            this.Drucken.Click += new System.EventHandler(this.Drucken_Click);
+            this.alsWordPdfDruckenToolStripMenuItem.Name = "alsWordPdfDruckenToolStripMenuItem";
+            this.alsWordPdfDruckenToolStripMenuItem.Size = new System.Drawing.Size(288, 30);
+            this.alsWordPdfDruckenToolStripMenuItem.Text = "als Word + PDF drucken";
+            this.alsWordPdfDruckenToolStripMenuItem.Click += new System.EventHandler(this.Drucken_Click);
             // 
             // alsWordDruckenToolStripMenuItem
             // 
@@ -524,14 +524,14 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbDienstag;
+        private System.Windows.Forms.Label lbMontag;
+        private System.Windows.Forms.Label lbMittwoch;
+        private System.Windows.Forms.Label lbDonnerstag;
+        private System.Windows.Forms.Label lbFreitag;
+        private System.Windows.Forms.Label lbVorspeise;
+        private System.Windows.Forms.Label lbHauptspeise;
+        private System.Windows.Forms.Label lbNachspeise;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem speisenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vorspeiseToolStripMenuItem;
@@ -539,21 +539,21 @@
         private System.Windows.Forms.ToolStripMenuItem nachspeiseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alleSpeisenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wochenspeiseplanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Drucken;
-        internal System.Windows.Forms.TextBox textbox1;
+        private System.Windows.Forms.ToolStripMenuItem alsWordPdfDruckenToolStripMenuItem;
+        internal System.Windows.Forms.TextBox txtMoVor;
         internal System.Windows.Forms.TextBox txtFrHaupt;
-        internal System.Windows.Forms.TextBox txt5;
+        internal System.Windows.Forms.TextBox txtFrVor;
         internal System.Windows.Forms.TextBox txtDoNach;
         internal System.Windows.Forms.TextBox txtDoHaupt;
-        internal System.Windows.Forms.TextBox txt4;
+        internal System.Windows.Forms.TextBox txtDoVor;
         internal System.Windows.Forms.TextBox txtMiNach;
         internal System.Windows.Forms.TextBox txtMiHaupt;
-        internal System.Windows.Forms.TextBox txt3;
+        internal System.Windows.Forms.TextBox txtMiVor;
         internal System.Windows.Forms.TextBox txtMoHaupt;
         internal System.Windows.Forms.TextBox txtMoNach;
         internal System.Windows.Forms.TextBox txtDiNach;
         internal System.Windows.Forms.TextBox txtDiHaupt;
-        internal System.Windows.Forms.TextBox txt2;
+        internal System.Windows.Forms.TextBox txtDiVor;
         internal System.Windows.Forms.TextBox txtFrNach;
         private System.Windows.Forms.ToolStripMenuItem alsWordDruckenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alsPDFDruckenToolStripMenuItem;

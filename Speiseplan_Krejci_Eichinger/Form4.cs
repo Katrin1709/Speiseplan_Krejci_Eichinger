@@ -13,6 +13,7 @@ namespace Speiseplan_Krejci_Eichinger
     public partial class Form4 : Form
     {
         internal static Form4 f4;
+
         public Form4()
         {
             f4 = this;
@@ -23,22 +24,17 @@ namespace Speiseplan_Krejci_Eichinger
         {
             FormBorderStyle = FormBorderStyle.Fixed3D;
 
-            listView1.Columns.Clear();
-            listView1.FullRowSelect = true;
-            listView1.View = View.Details;
-            listView1.Columns.Add("Kategorie");
-            listView1.Columns.Add("Bezeichnung");
-            listView1.Columns.Add("Bewertung");
-            listView1.Font = new Font("Calibri", 12);
+            listViewBewertung.FullRowSelect = true;
+            listViewBewertung.Font = new Font("Calibri", 12);
 
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewBewertung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewBewertung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        //Bewertungen einlesen
+        #region Bewertungen einlesen
         public void EinlesenVorspeisen()
         {
-            Form1.f1.sql = "Select Kategorie, Bezeichnung, Bewertung FROM Bewertungen Where Kategorie = '" + Form1.f1.label1.Text + "' Order By Bezeichnung";
+            Form1.f1.sql = "Select Kategorie, Bezeichnung, Bewertung FROM Bewertungen Where Kategorie = '" + Form1.f1.lbVorspeisen.Text + "' Order By Bezeichnung";
 
             Form1.f1.dr = Form1.f1.db.Einlesen(Form1.f1.sql);
             while (Form1.f1.dr.Read())
@@ -46,15 +42,15 @@ namespace Speiseplan_Krejci_Eichinger
                 Form1.f1.lvItem = new ListViewItem(Form1.f1.dr[0].ToString());
                 Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[1].ToString());
                 Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[2].ToString());
-                listView1.Items.Add(Form1.f1.lvItem);
+                listViewBewertung.Items.Add(Form1.f1.lvItem);
             }
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewBewertung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewBewertung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         public void EinlesenHauptspeisen()
         {
-            Form1.f1.sql = "Select Kategorie, Bezeichnung, Bewertung FROM Bewertungen Where Kategorie = '" + Form1.f1.label3.Text + "' Order By Bezeichnung";
+            Form1.f1.sql = "Select Kategorie, Bezeichnung, Bewertung FROM Bewertungen Where Kategorie = '" + Form1.f1.lbHauptspeisen.Text + "' Order By Bezeichnung";
 
             Form1.f1.dr = Form1.f1.db.Einlesen(Form1.f1.sql);
             while (Form1.f1.dr.Read())
@@ -62,15 +58,15 @@ namespace Speiseplan_Krejci_Eichinger
                 Form1.f1.lvItem = new ListViewItem(Form1.f1.dr[0].ToString());
                 Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[1].ToString());
                 Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[2].ToString());
-                listView1.Items.Add(Form1.f1.lvItem);
+                listViewBewertung.Items.Add(Form1.f1.lvItem);
             }
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewBewertung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewBewertung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         public void EinlesenNachspeisen()
         {
-            Form1.f1.sql = "Select Kategorie, Bezeichnung, Bewertung FROM Bewertungen Where Kategorie = '" + Form1.f1.label2.Text + "' Order By Bezeichnung";
+            Form1.f1.sql = "Select Kategorie, Bezeichnung, Bewertung FROM Bewertungen Where Kategorie = '" + Form1.f1.lbNachspeisen.Text + "' Order By Bezeichnung";
 
             Form1.f1.dr = Form1.f1.db.Einlesen(Form1.f1.sql);
             while (Form1.f1.dr.Read())
@@ -78,12 +74,14 @@ namespace Speiseplan_Krejci_Eichinger
                 Form1.f1.lvItem = new ListViewItem(Form1.f1.dr[0].ToString());
                 Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[1].ToString());
                 Form1.f1.lvItem.SubItems.Add(Form1.f1.dr[2].ToString());
-                listView1.Items.Add(Form1.f1.lvItem);
+                listViewBewertung.Items.Add(Form1.f1.lvItem);
             }
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewBewertung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewBewertung.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
+        #endregion
 
+        #region Toolstrips Einlesen
         private void vorspeiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1.f1.Text = "Vorspeisen";
@@ -134,5 +132,6 @@ namespace Speiseplan_Krejci_Eichinger
             Form3.f3.Text = "Wochenspeiseplan";
             Form3.f3.Show();
         }
+        #endregion
     }
 }
