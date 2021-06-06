@@ -38,6 +38,7 @@
             this.btnSpeichern = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.txtBild = new System.Windows.Forms.TextBox();
+            this.btnpfad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -134,11 +135,24 @@
             // 
             // txtBild
             // 
-            this.txtBild.Location = new System.Drawing.Point(277, 473);
+            this.txtBild.Enabled = false;
+            this.txtBild.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBild.Location = new System.Drawing.Point(277, 472);
+            this.txtBild.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBild.Name = "txtBild";
-            this.txtBild.Size = new System.Drawing.Size(262, 26);
+            this.txtBild.Size = new System.Drawing.Size(170, 31);
             this.txtBild.TabIndex = 8;
-            this.txtBild.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
+            // 
+            // btnpfad
+            // 
+            this.btnpfad.Location = new System.Drawing.Point(454, 471);
+            this.btnpfad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnpfad.Name = "btnpfad";
+            this.btnpfad.Size = new System.Drawing.Size(84, 38);
+            this.btnpfad.TabIndex = 9;
+            this.btnpfad.Text = "Pfad";
+            this.btnpfad.UseVisualStyleBackColor = true;
+            this.btnpfad.Click += new System.EventHandler(this.btnpfad_Click);
             // 
             // Form2
             // 
@@ -146,6 +160,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(615, 752);
+            this.Controls.Add(this.btnpfad);
             this.Controls.Add(this.txtBild);
             this.Controls.Add(this.btnSpeichern);
             this.Controls.Add(this.cbSpeiseart);
@@ -177,5 +192,6 @@
         internal System.Windows.Forms.ComboBox cbSpeiseart;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         internal System.Windows.Forms.TextBox txtBild;
+        private System.Windows.Forms.Button btnpfad;
     }
 }

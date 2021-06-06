@@ -32,6 +32,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.speisenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vorspeiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +40,6 @@
             this.nachspeiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alleSpeisenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wochenspeiseplanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.speisenÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,9 +48,11 @@
             this.listViewBewertung.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.listViewBewertung.HideSelection = false;
             this.listViewBewertung.Location = new System.Drawing.Point(24, 36);
+            this.listViewBewertung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewBewertung.Name = "listViewBewertung";
             this.listViewBewertung.Size = new System.Drawing.Size(1401, 690);
             this.listViewBewertung.TabIndex = 0;
@@ -64,11 +66,17 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Bezeichnung";
+            this.columnHeader2.Width = 350;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Bewertung";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "";
+            this.columnHeader4.Width = 0;
             // 
             // menuStrip1
             // 
@@ -125,18 +133,10 @@
             // 
             // wochenspeiseplanToolStripMenuItem
             // 
-            this.wochenspeiseplanToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.speisenÄndernToolStripMenuItem});
             this.wochenspeiseplanToolStripMenuItem.Name = "wochenspeiseplanToolStripMenuItem";
             this.wochenspeiseplanToolStripMenuItem.Size = new System.Drawing.Size(171, 29);
             this.wochenspeiseplanToolStripMenuItem.Text = "Wochenspeiseplan";
             this.wochenspeiseplanToolStripMenuItem.Click += new System.EventHandler(this.wochenspeiseplanToolStripMenuItem_Click);
-            // 
-            // speisenÄndernToolStripMenuItem
-            // 
-            this.speisenÄndernToolStripMenuItem.Name = "speisenÄndernToolStripMenuItem";
-            this.speisenÄndernToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
-            this.speisenÄndernToolStripMenuItem.Text = "Drucken";
             // 
             // Form4
             // 
@@ -146,6 +146,7 @@
             this.ClientSize = new System.Drawing.Size(1451, 752);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.listViewBewertung);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bewertungen";
@@ -167,9 +168,9 @@
         private System.Windows.Forms.ToolStripMenuItem nachspeiseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alleSpeisenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wochenspeiseplanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem speisenÄndernToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

@@ -47,6 +47,8 @@ namespace Speiseplan_Krejci_Eichinger
             //Datenbankobjekt
             db = new Datenbank();
 
+            this.Icon = Properties.Resources.icon;
+
             i = 0;
             BilderAnzeigen();
             alleSpeisenEinlesen();
@@ -125,79 +127,76 @@ namespace Speiseplan_Krejci_Eichinger
         #region Speisen zufällig ziehen
         public void ZufälligeVorspeisen()
         {
-            Form3.f3.txtMoVor.Clear();
-            Form3.f3.txtDiVor.Text = "";
-            Form3.f3.txtMiVor.Text = "";
-            Form3.f3.txtDoVor.Text = "";
-            Form3.f3.txtFrVor.Text = "";
+            arrVor.Clear();
             
             int letzteid = db.BerechnenInt("Select Max(VorspeiseId) from Vorspeise") ;
+
+            ArrayList vorinde = new ArrayList();
+            int zähler = 0;
             
-            for (int i = 0; i <= 4; i++)
+            for (int i = 0; i < 5; i++)
             {
-                bool doppelt;
                 do
                 {
-
-                    doppelt = false;
-                    int index = rand.Next(1, letzteid);
-
-                    sql = "Select Bezeichnung from Vorspeise Where VorspeiseID = " + index;
-                    dr = db.Einlesen(sql);
-
-                    while (dr.Read())
+                    int index = rand.Next(0, letzteid);
+                    
+                    if (!vorinde.Contains(index))
                     {
-                        arrVor.Add(dr[0].ToString());
+                        vorinde.Add(index);
+                        sql = "Select Bezeichnung from Vorspeise Where VorspeiseID = " + index;
+                        dr = db.Einlesen(sql);
+                        while (dr.Read())
+                        {
+                            arrVor.Add(dr[0].ToString());
+                        }
+                        zähler++;
                     }
-                    for (int d = 0; d < i; d++)
+                    else
                     {
-                        if (arrVor[i] == arrVor[d])
-                            doppelt = true;
+                        i--;
                     }
                 }
-                while (doppelt == true);
+                while (zähler <= 4);   
             }
-            Form3.f3.txtMoVor.Text = arrVor[0] as string;
-            Form3.f3.txtDiVor.Text = arrVor[1] as string;
-            Form3.f3.txtMiVor.Text = arrVor[2] as string;
-            Form3.f3.txtDoVor.Text = arrVor[3] as string;
-            Form3.f3.txtFrVor.Text = arrVor[4] as string;
+            Form3.f3.txtMoVor.Text = Form1.f1.arrVor[0] as string;
+            Form3.f3.txtDiVor.Text = Form1.f1.arrVor[1] as string;
+            Form3.f3.txtMiVor.Text = Form1.f1.arrVor[2] as string;
+            Form3.f3.txtDoVor.Text = Form1.f1.arrVor[3] as string;
+            Form3.f3.txtFrVor.Text = Form1.f1.arrVor[4] as string;
         }
 
         public void ZufälligeHauptspeise()
         {
-            Form3.f3.txtMoHaupt.Text = "";
-            Form3.f3.txtDiHaupt.Text = "";
-            Form3.f3.txtMiHaupt.Text = "";
-            Form3.f3.txtDoHaupt.Text = "";
-            Form3.f3.txtFrHaupt.Text = "";
+            arrHaupt.Clear();
             
             int letzteid = db.BerechnenInt("Select Max(HauptspeiseId) from Hauptspeise");
 
-            for (int i = 0; i <= 4; i++)
+            ArrayList hauptinde = new ArrayList();
+            int zählerhaupt = 0;
+
+            for (int i = 0; i < 5; i++)
             {
-                bool doppelt;
                 do
                 {
+                    int index = rand.Next(0, letzteid);
 
-                    doppelt = false;
-                    int index = rand.Next(1, letzteid);
-                    
-
-                    sql = "Select Bezeichnung from Hauptspeise Where HauptspeiseId = " + index;
-                    dr = db.Einlesen(sql);
-
-                    while (dr.Read())
+                    if (!hauptinde.Contains(index))
                     {
-                        arrHaupt.Add(dr[0].ToString());
+                        hauptinde.Add(index);
+                        sql = "Select Bezeichnung from Hauptspeise Where HauptspeiseId = " + index;
+                        dr = db.Einlesen(sql);
+                        while (dr.Read())
+                        {
+                            arrHaupt.Add(dr[0].ToString());
+                        }
+                        zählerhaupt++;
                     }
-                    for (int d = 0; d < i; d++)
+                    else
                     {
-                        if (arrVor[i] == arrVor[d])
-                            doppelt = true;
+                        i--;
                     }
                 }
-                while (doppelt == true);
+                while (zählerhaupt <= 4);
             }
             Form3.f3.txtMoHaupt.Text = arrHaupt[0] as string;
             Form3.f3.txtDiHaupt.Text = arrHaupt[1] as string;
@@ -208,37 +207,36 @@ namespace Speiseplan_Krejci_Eichinger
 
         public void ZufälligeNachspeise()
         {
-            Form3.f3.txtMoNach.Text = "";
-            Form3.f3.txtDiNach.Text = "";
-            Form3.f3.txtMiNach.Text = "";
-            Form3.f3.txtDoNach.Text = "";
-            Form3.f3.txtFrNach.Text = "";
+            arrNach.Clear();
             
             int letzteid = db.BerechnenInt("Select Max(NachspeiseId) from Nachspeise") + 1;
 
-            for (int i = 0; i <= 4; i++)
+            ArrayList nachinde = new ArrayList();
+            int zählernach = 0;
+
+            for (int i = 0; i < 5; i++)
             {
-                bool doppelt;
                 do
                 {
+                    int index = rand.Next(0, letzteid);
 
-                    doppelt = false;
-                    int index = rand.Next(1, letzteid);
-
-                    sql = "Select Bezeichnung from Nachspeise Where NachspeiseId = " + index;
-                    dr = db.Einlesen(sql);
-
-                    while (dr.Read())
+                    if (!nachinde.Contains(index))
                     {
-                        arrNach.Add(dr[0].ToString());
+                        nachinde.Add(index);
+                        sql = "Select Bezeichnung from Nachspeise Where NachspeiseId = " + index;
+                        dr = db.Einlesen(sql);
+                        while (dr.Read())
+                        {
+                            arrNach.Add(dr[0].ToString());
+                        }
+                        zählernach++;
                     }
-                    for (int d = 0; d < i; d++)
+                    else
                     {
-                        if (arrVor[i] == arrVor[d])
-                            doppelt = true;
+                        i--;
                     }
                 }
-                while (doppelt == true);
+                while (zählernach <= 4);
             }
             Form3.f3.txtMoNach.Text = arrNach[0] as string;
             Form3.f3.txtDiNach.Text = arrNach[1] as string;
@@ -277,6 +275,7 @@ namespace Speiseplan_Krejci_Eichinger
             while (dr.Read())
             {
                 lvItem = new ListViewItem();
+
                 try
                 {
                     bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
@@ -291,6 +290,7 @@ namespace Speiseplan_Krejci_Eichinger
                 listViewSpeisen.SmallImageList = bilderListe;
                 lvItem.ImageIndex = i;
                 i++;
+
                 lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listViewSpeisen.Items.Add(lvItem);
@@ -316,6 +316,7 @@ namespace Speiseplan_Krejci_Eichinger
             while (dr.Read())
             {
                 lvItem = new ListViewItem();
+
                 try
                 {
                     bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
@@ -330,6 +331,7 @@ namespace Speiseplan_Krejci_Eichinger
                 listViewSpeisen.SmallImageList = bilderListe;
                 lvItem.ImageIndex = i;
                 i++;
+
                 lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listViewSpeisen.Items.Add(lvItem);
@@ -355,6 +357,7 @@ namespace Speiseplan_Krejci_Eichinger
             while (dr.Read())
             {
                 lvItem = new ListViewItem();
+
                 try
                 {
                     bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
@@ -369,6 +372,7 @@ namespace Speiseplan_Krejci_Eichinger
                 listViewSpeisen.SmallImageList = bilderListe;
                 lvItem.ImageIndex = i;
                 i++;
+
                 lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listViewSpeisen.Items.Add(lvItem);
@@ -429,6 +433,7 @@ namespace Speiseplan_Krejci_Eichinger
             while (dr.Read())
             {
                 lvItem = new ListViewItem();
+
                 try
                 {
                     bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
@@ -438,9 +443,11 @@ namespace Speiseplan_Krejci_Eichinger
                     bilderListe.Images.Add(Image.FromFile(Application.StartupPath + "\\Bilder\\default.png"));
                     continue;
                 }
+
                 listViewVorspeise.SmallImageList = bilderListe;
                 lvItem.ImageIndex = i;
                 i++;
+
                 lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listViewVorspeise.Items.Add(lvItem);
@@ -458,6 +465,7 @@ namespace Speiseplan_Krejci_Eichinger
             while (dr.Read())
             {
                 lvItem = new ListViewItem();
+
                 try
                 {
                     bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
@@ -471,6 +479,7 @@ namespace Speiseplan_Krejci_Eichinger
                 listViewHauptspeise.SmallImageList = bilderListe;
                 lvItem.ImageIndex = i;
                 i++;
+
                 lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listViewHauptspeise.Items.Add(lvItem);
@@ -488,6 +497,7 @@ namespace Speiseplan_Krejci_Eichinger
             while (dr.Read())
             {
                 lvItem = new ListViewItem();
+
                 try
                 {
                     bilderListe.Images.Add(Image.FromFile(Application.StartupPath + dr[2].ToString()));
@@ -501,6 +511,7 @@ namespace Speiseplan_Krejci_Eichinger
                 listViewNachspeise.SmallImageList = bilderListe;
                 lvItem.ImageIndex = i;
                 i++;
+
                 lvItem.SubItems.Add(dr[0].ToString());
                 lvItem.SubItems.Add(dr[1].ToString());
                 listViewNachspeise.Items.Add(lvItem);
@@ -750,7 +761,7 @@ namespace Speiseplan_Krejci_Eichinger
         }
         #endregion
 
-        #region Bewertungen geben
+        #region Bewertungen abgeben
         private void vorspeiseBewertenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -760,7 +771,7 @@ namespace Speiseplan_Krejci_Eichinger
                 lvItem = listViewVorspeise.SelectedItems[0];
 
                 sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
-                    values ('" + lbVorspeisen.Text + "', '" + lvItem.SubItems[1].Text + "', '" + eingabe + "');";
+                    values ('" + lbVorspeisen.Text + "', '" + lvItem.SubItems[2].Text + "', '" + eingabe + "');";
 
                 db.Ausfuehren(sql);
             }
@@ -780,7 +791,7 @@ namespace Speiseplan_Krejci_Eichinger
                 lvItem = listViewHauptspeise.SelectedItems[0];
 
                 sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
-                    values ('" + lbHauptspeisen.Text + "', '" + lvItem.SubItems[1].Text + "', '" + eingabe + "');";
+                    values ('" + lbHauptspeisen.Text + "', '" + lvItem.SubItems[2].Text + "', '" + eingabe + "');";
 
                 db.Ausfuehren(sql);
             }
@@ -800,7 +811,7 @@ namespace Speiseplan_Krejci_Eichinger
                 lvItem = listViewNachspeise.SelectedItems[0];
 
                 sql = @"Insert into Bewertungen (Kategorie, Bezeichnung, Bewertung)
-                    values ('" + lbNachspeisen.Text + "', '" + lvItem.SubItems[1].Text + "', '" + eingabe + "');";
+                    values ('" + lbNachspeisen.Text + "', '" + lvItem.SubItems[2].Text + "', '" + eingabe + "');";
 
                 db.Ausfuehren(sql);
             }

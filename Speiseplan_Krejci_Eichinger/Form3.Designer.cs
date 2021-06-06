@@ -62,6 +62,7 @@
             this.alsWordPdfDruckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alsWordDruckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alsPDFDruckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NeuLadentoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -421,7 +422,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.speisenToolStripMenuItem,
-            this.wochenspeiseplanToolStripMenuItem});
+            this.wochenspeiseplanToolStripMenuItem,
+            this.NeuLadentoolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -475,8 +477,10 @@
             this.alsWordDruckenToolStripMenuItem,
             this.alsPDFDruckenToolStripMenuItem});
             this.wochenspeiseplanToolStripMenuItem.Name = "wochenspeiseplanToolStripMenuItem";
+            this.wochenspeiseplanToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.wochenspeiseplanToolStripMenuItem.Size = new System.Drawing.Size(171, 29);
             this.wochenspeiseplanToolStripMenuItem.Text = "Wochenspeiseplan";
+            
             // 
             // alsWordPdfDruckenToolStripMenuItem
             // 
@@ -498,6 +502,14 @@
             this.alsPDFDruckenToolStripMenuItem.Size = new System.Drawing.Size(288, 30);
             this.alsPDFDruckenToolStripMenuItem.Text = "als PDF drucken";
             this.alsPDFDruckenToolStripMenuItem.Click += new System.EventHandler(this.alsPDFDruckenToolStripMenuItem_Click);
+            // 
+            // NeuLadentoolStripMenuItem
+            // 
+            this.NeuLadentoolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.NeuLadentoolStripMenuItem.Name = "NeuLadentoolStripMenuItem";
+            this.NeuLadentoolStripMenuItem.Size = new System.Drawing.Size(108, 29);
+            this.NeuLadentoolStripMenuItem.Text = "Neu Laden";
+            this.NeuLadentoolStripMenuItem.Click += new System.EventHandler(this.NeuLadentoolStripMenuItem_Click);
             // 
             // Form3
             // 
@@ -557,5 +569,6 @@
         internal System.Windows.Forms.TextBox txtFrNach;
         private System.Windows.Forms.ToolStripMenuItem alsWordDruckenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alsPDFDruckenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NeuLadentoolStripMenuItem;
     }
 }

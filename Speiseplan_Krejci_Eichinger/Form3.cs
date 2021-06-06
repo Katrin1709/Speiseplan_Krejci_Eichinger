@@ -23,9 +23,11 @@ namespace Speiseplan_Krejci_Eichinger
         #region Variablen
         internal string tag;
         #endregion
-
+   
         public void Form3_Load(object sender, EventArgs e)
         {
+            this.Icon = Properties.Resources.icon;
+
             FormBorderStyle = FormBorderStyle.Fixed3D;
 
             Form1.f1.ZufälligeVorspeisen();
@@ -38,7 +40,7 @@ namespace Speiseplan_Krejci_Eichinger
         {
             Form1.f1.Text = "Speisen";
             this.Hide();
-            Form1.f1.ShowDialog();
+            Form1.f1.Show();
             Form1.f1.i = 0;
             Form1.f1.BilderAnzeigen();
             Form1.f1.alleSpeisenEinlesen();
@@ -76,6 +78,13 @@ namespace Speiseplan_Krejci_Eichinger
             Form1.f1.NachspeiseEinlesen();
             Form1.f1.Show();
         }
+
+        private void NeuLadentoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1.f1.ZufälligeVorspeisen();
+            Form1.f1.ZufälligeHauptspeise();
+            Form1.f1.ZufälligeNachspeise();
+        }
         #endregion
 
         #region Speisen ändern
@@ -88,6 +97,7 @@ namespace Speiseplan_Krejci_Eichinger
 
             Form1.f1.auswählenToolStripMenuItem.Visible = true;
         }
+
         public void HauptspeiseÄndern()
         {
             this.Hide();
@@ -97,6 +107,7 @@ namespace Speiseplan_Krejci_Eichinger
 
             Form1.f1.auswählenToolStripMenuItem.Visible = true;
         }
+
         public void NachspeiseÄndern()
         {
             this.Hide();
@@ -112,21 +123,25 @@ namespace Speiseplan_Krejci_Eichinger
             VorspeiseÄndern();
             tag = "MoVor";
         }
+
         private void txt2_DoubleClick(object sender, EventArgs e)
         {
             VorspeiseÄndern();
             tag = "DiVor";
         }
+
         private void txt3_DoubleClick(object sender, EventArgs e)
         {
             VorspeiseÄndern();
             tag = "MiVor";
         }
+
         private void txt4_DoubleClick(object sender, EventArgs e)
         {
             VorspeiseÄndern();
             tag = "DoVor";
         }
+
         private void txt5_DoubleClick(object sender, EventArgs e)
         {
             VorspeiseÄndern();
@@ -138,21 +153,25 @@ namespace Speiseplan_Krejci_Eichinger
             HauptspeiseÄndern();
             tag = "MoHaupt";
         }
+
         private void txtDiHaupt_DoubleClick(object sender, EventArgs e)
         {
             HauptspeiseÄndern();
             tag = "DiHaupt";
         }
+
         private void txtMiHaupt_DoubleClick(object sender, EventArgs e)
         {
             HauptspeiseÄndern();
             tag = "MiHaupt";
         }
+
         private void txtDoHaupt_DoubleClick(object sender, EventArgs e)
         {
             HauptspeiseÄndern();
             tag = "DoHaupt";
         }
+
         private void txtFrHaupt_DoubleClick(object sender, EventArgs e)
         {
             HauptspeiseÄndern();
@@ -164,21 +183,25 @@ namespace Speiseplan_Krejci_Eichinger
             NachspeiseÄndern();
             tag = "MoNach";
         }
+
         private void txtDiNach_DoubleClick(object sender, EventArgs e)
         {
             NachspeiseÄndern();
             tag = "DiNach";
         }
+
         private void txtMiNach_DoubleClick(object sender, EventArgs e)
         {
             NachspeiseÄndern();
             tag = "MiNach";
         }
+
         private void txtDoNach_DoubleClick(object sender, EventArgs e)
         {
             NachspeiseÄndern();
             tag = "DoNach";
         }
+
         private void txtFrNach_DoubleClick(object sender, EventArgs e)
         {
             NachspeiseÄndern();
@@ -195,6 +218,7 @@ namespace Speiseplan_Krejci_Eichinger
                 MessageBox.Show("Es konnte keine Verbindung zu Word hergestellt werden!");
                 return;
             }
+
             wordapp.Visible = true;
             wordapp.Documents.Open(Application.StartupPath + "\\../../../../Wochenspeiseplan.docx");
             wordapp.ActiveDocument.FormFields["MoVor"].Result = txtMoVor.Text;
@@ -225,6 +249,7 @@ namespace Speiseplan_Krejci_Eichinger
                 MessageBox.Show("Es konnte keine Verbindung zu Word hergestellt werden!");
                 return;
             }
+
             wordapp.Visible = true;
             wordapp.Documents.Open(Application.StartupPath + "\\../../../../Wochenspeiseplan.docx");
             wordapp.ActiveDocument.FormFields["MoVor"].Result = txtMoVor.Text;
@@ -254,6 +279,7 @@ namespace Speiseplan_Krejci_Eichinger
                 MessageBox.Show("Es konnte keine Verbindung zu Word hergestellt werden!");
                 return;
             }
+
             wordapp.Visible = true;
             wordapp.Documents.Open(Application.StartupPath + "\\../../../../Wochenspeiseplan.docx");
             wordapp.ActiveDocument.FormFields["MoVor"].Result = txtMoVor.Text;

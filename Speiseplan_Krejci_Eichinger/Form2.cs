@@ -21,6 +21,8 @@ namespace Speiseplan_Krejci_Eichinger
         
         private void Form2_Load(object sender, EventArgs e)
         {
+            this.Icon = Properties.Resources.icon;
+
             FormBorderStyle = FormBorderStyle.Fixed3D;
         }
         
@@ -61,6 +63,7 @@ namespace Speiseplan_Krejci_Eichinger
                     {
                         Form1.f1.sql = @"Insert into Vorspeise (Speiseart, Bezeichnung, Bildpfad)
                         values ('" + cbSpeiseart.Text + "', '" + txtBezeichnung.Text + "', '" + "\\Bilder\\default.png" + "');";
+
                         Form1.f1.db.Ausfuehren(Form1.f1.sql);
                         Form1.f1.alleSpeisenVorspeiseEinlesen();
                     }
@@ -188,17 +191,16 @@ namespace Speiseplan_Krejci_Eichinger
             }
         }
 
-        private void textBox1_DoubleClick(object sender, EventArgs e)
+        private void btnpfad_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             openFileDialog1.InitialDirectory = Application.StartupPath + "\\Bilder";
+
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string filename = openFileDialog1.FileName;
                 
-                MessageBox.Show(filename.Substring(filename.IndexOf("\\Bilder")));
-
-                txtBild.Text = filename.Substring(filename.IndexOf("\\Bilder")); 
+                txtBild.Text = filename.Substring(filename.IndexOf("\\Bilder"));
             }
         }
     }

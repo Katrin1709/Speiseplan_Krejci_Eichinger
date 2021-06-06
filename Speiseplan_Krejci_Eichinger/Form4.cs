@@ -22,6 +22,8 @@ namespace Speiseplan_Krejci_Eichinger
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            this.Icon = Properties.Resources.icon;
+
             FormBorderStyle = FormBorderStyle.Fixed3D;
 
             listViewBewertung.FullRowSelect = true;

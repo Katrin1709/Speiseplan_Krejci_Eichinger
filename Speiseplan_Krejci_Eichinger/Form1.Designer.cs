@@ -36,7 +36,6 @@
             this.nachspeiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alleSpeisenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wochenspeiseplanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.speisenÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listViewSpeisen = new System.Windows.Forms.ListView();
             this.contextMenuStrip4 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.auswählenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,23 +125,16 @@
             // 
             // wochenspeiseplanToolStripMenuItem
             // 
-            this.wochenspeiseplanToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.speisenÄndernToolStripMenuItem});
             this.wochenspeiseplanToolStripMenuItem.Name = "wochenspeiseplanToolStripMenuItem";
             this.wochenspeiseplanToolStripMenuItem.Size = new System.Drawing.Size(171, 29);
             this.wochenspeiseplanToolStripMenuItem.Text = "Wochenspeiseplan";
             this.wochenspeiseplanToolStripMenuItem.Click += new System.EventHandler(this.wochenspeiseplanToolStripMenuItem_Click);
             // 
-            // speisenÄndernToolStripMenuItem
-            // 
-            this.speisenÄndernToolStripMenuItem.Name = "speisenÄndernToolStripMenuItem";
-            this.speisenÄndernToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
-            this.speisenÄndernToolStripMenuItem.Text = "Drucken";
-            // 
             // listViewSpeisen
             // 
             this.listViewSpeisen.ContextMenuStrip = this.contextMenuStrip4;
             this.listViewSpeisen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewSpeisen.Font = new System.Drawing.Font("Goudy Old Style", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewSpeisen.HideSelection = false;
             this.listViewSpeisen.Location = new System.Drawing.Point(0, 33);
             this.listViewSpeisen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -157,13 +149,12 @@
             this.contextMenuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.auswählenToolStripMenuItem});
             this.contextMenuStrip4.Name = "contextMenuStrip4";
-            this.contextMenuStrip4.Size = new System.Drawing.Size(241, 67);
-            
+            this.contextMenuStrip4.Size = new System.Drawing.Size(170, 34);
             // 
             // auswählenToolStripMenuItem
             // 
             this.auswählenToolStripMenuItem.Name = "auswählenToolStripMenuItem";
-            this.auswählenToolStripMenuItem.Size = new System.Drawing.Size(240, 30);
+            this.auswählenToolStripMenuItem.Size = new System.Drawing.Size(169, 30);
             this.auswählenToolStripMenuItem.Text = "Auswählen";
             this.auswählenToolStripMenuItem.Visible = false;
             this.auswählenToolStripMenuItem.Click += new System.EventHandler(this.auswählenToolStripMenuItem_Click_1);
@@ -427,7 +418,6 @@
         private System.Windows.Forms.ToolStripMenuItem nachspeiseHinzufügen;
         private System.Windows.Forms.ToolStripMenuItem nachspeiseBearbeiten;
         private System.Windows.Forms.ToolStripMenuItem nachspeiseLöschenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem speisenÄndernToolStripMenuItem;
         internal System.Windows.Forms.ListView listViewVorspeise;
         private System.Windows.Forms.ToolStripMenuItem vorspeiseBewertenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bewertungenAnsehenToolStripMenuItem;
